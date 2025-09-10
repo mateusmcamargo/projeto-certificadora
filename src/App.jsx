@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { collection, doc, getDocs } from 'firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 import { database } from './firebase-config'
+import NotaFiscalSection from './components/NotaFiscalSection';
+import PurchaseSidebarPreview from './components/PurchaseManagerSidebarPreview';
+import PurchaseManagerLogic from './components/PurchaseManagerLogic';
 
 function App() {
 
@@ -46,17 +47,28 @@ function App() {
         );
     }
 
+
     return (
-        <section className='users'>
-            {users.map(user => (
-                <div className='user' key={user.id}>
+        <div>
+            <section className='users'>
+                {users.map(user => (
+                    <div className='user' key={user.id}>
                     <p><span>id: </span>{user.id}</p>
                     <p><span>nome: </span>{user.name}</p>
                     <p><span>senha: </span>{user.password}</p>
                     <p><span>data de nascimento: </span>{user.birth?.toDate().toLocaleString('en-GB').slice(0, 10)}</p>
+                    </div>
+                    ))}
+            </section> 
+            <section className="purchase-manager-with-webscraping">
+                <div style={{display:'flex', alignItems:"flex-start", flexWrap:"wrap", justifyContent:'center', gap:"1rem"}}>
+                    <PurchaseManagerLogic>
+                        <NotaFiscalSection/>
+                        <PurchaseSidebarPreview/>
+                    </PurchaseManagerLogic>
                 </div>
-            ))}
-        </section> 
+            </section>
+        </div>
     )
 }
 
