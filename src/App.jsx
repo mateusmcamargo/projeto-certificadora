@@ -3,8 +3,8 @@ import './App.css'
 import { collection, getDocs } from 'firebase/firestore'
 import { database } from './firebase-config'
 import NotaFiscalSection from './components/NotaFiscalSection';
-import PurchaseSidebarPreview from './components/PurchaseManagerSidebarPreview';
-import PurchaseManagerLogic from './components/PurchaseManagerLogic';
+import PurchasesManagerDraftSidebar from './components/PurchasesManagerDraftSidebar';
+import PurchaseManagerLogic from './components/PurchasesManagerDraftLogic';
 
 function App() {
 
@@ -64,7 +64,7 @@ function App() {
                 <div style={{display:'flex', alignItems:"flex-start", flexWrap:"wrap", justifyContent:'center', gap:"1rem"}}>
                     <PurchaseManagerLogic>
                         <NotaFiscalSection/>
-                        <PurchaseSidebarPreview/>
+                        <PurchasesManagerDraftSidebar/>
                     </PurchaseManagerLogic>
                 </div>
             </section>

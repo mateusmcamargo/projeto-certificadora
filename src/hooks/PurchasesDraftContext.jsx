@@ -7,6 +7,8 @@ export const PurchasesDraftContext = createContext({
     addMultiplePurchases:()=>{},
     changePurchase:()=>{},
     deletePurchase:()=>{},
+    selectedPurchases:[],
+    setSelectedPurchases:()=>{},
     save:()=>{}
 });
 

@@ -1,20 +1,35 @@
-import Button from './Button'
-import Label from './Label'
+import Button from './ui/Button'
+import Label from './ui/Label'
 import { usePurchasesDraftContext } from '../hooks/PurchasesDraftContext';
 import Purchase from './Purchase';
-import Input from './Input';
+import Input from './ui/Input';
+import { useCallback } from 'react';
 
-const PurchaseSidebarPreview = () => {
-    const {purchasesList, addPurchase} = usePurchasesDraftContext();
+const PurchasesManagerDraftSidebar = () => {
+    const {purchasesList, setPurchasesList, addPurchase, selectedPurchases, setSelectedPurchases} = usePurchasesDraftContext();
+
+    const onSelect = (id, checked) => {
+        if (checked) setSelectedPurchases([...selectedPurchases, purchasesList.find(item => item.id === id)]);
+        else setSelectedPurchases(selectedPurchases.filter(item => item.id !== id));
+    };
+
+    const onClose = useCallback((id) => {
+        setPurchasesList(purchasesList.filter(item => item.id !== id));
+        setSelectedPurchases(selectedPurchases.filter(item => item.id !== id));
+    }, [purchasesList, selectedPurchases]);
+    
+    const renderPurchases = () => purchasesList.map(({id, title, category,price}) => (
+        <li key={id}><Purchase onClose={() => onClose(id)} onSelect={(checked) => onSelect(id,checked)} title={title} category={category} price={price}/></li>
+    ))
+    
+    
     return (
         <div>
             <div style={{display:"flex", justifyContent:"flex-end", marginBottom:".5rem"}}>
                 <Button.Default onClick={addPurchase} style={{width:"max-content", fontSize:".875rem"}}>+ Adicionar</Button.Default>
             </div>
             <ul style={{display:'flex', flexDirection:'column', gap:'.25rem'}}>
-                { purchasesList.map(({title, category,price}, index) => (
-                    <li key={index}><Purchase title={title} category={category} price={price}/></li>)
-                )}
+                { renderPurchases() }
             </ul>
             <div style={{display:"flex", flexDirection:"column", marginTop:"2rem", gap:"1rem"}}>
                 <h3>Total: R$ {purchasesList.reduce((acc, cv) => (cv.price + acc),0).toFixed(2)}</h3>
@@ -41,4 +56,4 @@ const PurchaseSidebarPreview = () => {
     )
 }
 
-export default PurchaseSidebarPreview
+export default PurchasesManagerDraftSidebar
