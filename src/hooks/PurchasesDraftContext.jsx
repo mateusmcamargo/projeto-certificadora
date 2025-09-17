@@ -7,8 +7,17 @@ export const PurchasesDraftContext = createContext({
     addMultiplePurchases:()=>{},
     changePurchase:()=>{},
     deletePurchase:()=>{},
+    deletePurchases:()=>{},
     selectedPurchases:[],
     setSelectedPurchases:()=>{},
+    onChangesConfirm:()=>{},
+    onChangesCancel:()=>{},
+    changesForm:{},
+    setChangesForm:()=>{},
+    selectedCardId:"",
+    handleCardSelection:()=>{},
+    group:{},
+    setGroup:()=>{},
     save:()=>{}
 });
 
