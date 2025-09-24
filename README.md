@@ -9,5 +9,6 @@
 *hot reload adicionado ao /vite.config.js*
 *npm: @fontsource para fontes*
 *npm: react-router-dom para navegação*
+*npm: react-icons para ícones*
 
 **purchase-draft-manager**
