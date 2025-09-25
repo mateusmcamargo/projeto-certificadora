@@ -1,3 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-family: 'Montserrat Variable', sans-serif;
+    text-decoration: none;
+}
+
 section.users {
     display: flex;
     align-items: center;
@@ -9,7 +18,7 @@ section.users {
     margin: 0 auto;
 }
 
-div.user {
+section.users > div.user {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -19,6 +28,6 @@ div.user {
 
 }
 
-span {
+section.users > span {
     font-weight: 700;
 }

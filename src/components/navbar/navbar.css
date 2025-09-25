@@ -1,0 +1,54 @@
+section.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  background-color: white;
+  z-index: 1;
+  font-weight: 500;
+}
+section.navbar nav {
+  min-width: 35rem;
+  width: 100%;
+  max-width: 45rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+}
+section.navbar nav button.add {
+  position: absolute;
+  bottom: 2rem;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 50%;
+  border: 4px solid white;
+  background-color: black;
+}
+section.navbar nav button.add svg {
+  font-size: 4rem;
+  color: white;
+}
+section.navbar nav div.pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+section.navbar nav div.pages a.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: white;
+}
+section.navbar nav div.pages a.page svg, section.navbar nav div.pages a.page span {
+  color: black;
+}
+section.navbar nav div.pages a.page svg {
+  font-size: 2.4rem;
+}
+section.navbar nav div.pages a.page span {
+  font-size: 1.2rem;
+}/*# sourceMappingURL=navbar.css.map */
