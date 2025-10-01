@@ -15,6 +15,7 @@ import '@fontsource-variable/montserrat';
 
 // style
 import './App.css'
+import './index.css'
 import Home from './pages/home';
 
 function App() {
