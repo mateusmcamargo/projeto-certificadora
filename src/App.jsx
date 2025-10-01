@@ -1,47 +1,86 @@
-import { useEffect, useState } from 'react'
 import './App.css'
-import { collection, getDocs } from 'firebase/firestore'
+// react and npm
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// firebase
+import { collection, doc, getDocs } from 'firebase/firestore'
 import { database } from './firebase-config'
-import NotaFiscalSection from './components/NotaFiscalSection';
-import PurchasesManagerDraftSidebar from './components/PurchasesManagerDraftSidebar';
-import PurchaseManagerLogic from './components/PurchasesManagerDraftLogic';
-import PurchasesManagerDialog from './components/ui/PurchasesManagerDialog';
 import { fetchUsers } from './useCases/fetchUsers';
 
-function App() {
+// components
+import { Navbar } from './components/navbar/Navbar'
 
+// fonts
+import '@fontsource-variable/montserrat';
+
+// style
+import './App.css'
+import Home from './pages/home';
+
+function App() {
+    
     const [users,   setUsers]   = useState([]);
     const [loading, setLoading] = useState(false);
     const [error,   setError]   = useState(null);
 
-    useEffect(() => {
-        //fetchUsers();
-    }, []);
+    // useEffect(() => {
 
-    if (error) {
-        return (
-            <p>ERROR: {error}</p>
-        );
-    }
-    if (loading) {
-        return (
-            <p>loading...</p>
-        );
-    }
+    //     const fetchUsers = async () => {
+    //         try {
+    //             if (!loading) {setLoading(true);}
+    //             const usersSnap = await getDocs(collection(database, 'users'));
+    //             const usersData = usersSnap.docs.map(user => ({
+    //                 id: user.id,
+    //                 ...user.data()
+    //             }));
+    //             setUsers(usersData);
+    //         }
+    //         catch(error) {
+    //             console.error('ERROR FETCHING USERS: ', error);
+    //             setError(error);
+    //         }
+    //         finally {
+    //             setLoading(false);
+    //         }
+    //     }
+
+    //     fetchUsers();
+    // }, []);
+
+    // if (error) {
+    //     return (
+    //         <p>ERROR: {error}</p>
+    //     );
+    // }
+    // if (loading) {
+    //     return (
+    //         <p>loading...</p>
+    //     );
+    // }
 
 
     return (
-        <div>
-            <section className="purchase-manager-with-webscraping">
-                <div style={{display:'flex', alignItems:"flex-start", flexWrap:"wrap", justifyContent:'center'}}>
-                    <PurchaseManagerLogic>
-                        <NotaFiscalSection/>
-                        <PurchasesManagerDraftSidebar/>
-                        <PurchasesManagerDialog/>
-                    </PurchaseManagerLogic>
-                </div>
-            </section>
-        </div>
+        <Router>
+            <div className='app'>
+                <Routes>
+                    {/* <Route path='/extract' element={<Extract/>}/> */}
+                    <Route path='/' element={<Home/>}/>
+                </Routes>
+
+                <Navbar/>
+
+                {/* <section className='users'>
+                    {users.map(user => (
+                        <div className='user' key={user.id}>
+                        <p><span>id: </span>{user.id}</p>
+                        <p><span>nome: </span>{user.name}</p>
+                        <p><span>senha: </span>{user.password}</p>
+                        <p><span>data de nascimento: </span>{user.birth?.toDate().toLocaleString('en-GB').slice(0, 10)}</p>
+                        </div>
+                    ))}
+                </section>  */}
+            </div>
+        </Router>
     )
 }
 
