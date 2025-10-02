@@ -1,10 +1,11 @@
+import './App.css'
 // react and npm
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 // firebase
 import { collection, doc, getDocs } from 'firebase/firestore'
 import { database } from './firebase-config'
+import { fetchUsers } from './useCases/fetchUsers';
 
 // components
 import { Navbar } from './components/navbar/Navbar'
@@ -14,12 +15,17 @@ import '@fontsource-variable/montserrat';
 
 // style
 import './App.css'
+<<<<<<< HEAD
 import { Extract } from './pages/Extract';
+=======
+import './index.css'
+import Home from './pages/home';
+>>>>>>> 0e8632f98defd1f0d83bad351486b6fa6b17c271
 
 function App() {
     
     const [users,   setUsers]   = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error,   setError]   = useState(null);
 
     // useEffect(() => {
@@ -57,11 +63,17 @@ function App() {
     //     );
     // }
 
+
     return (
         <Router>
             <div className='app'>
                 <Routes>
+<<<<<<< HEAD
                     <Route path='/extract' element={<Extract/>}/>
+=======
+                    {/* <Route path='/extract' element={<Extract/>}/> */}
+                    <Route path='/' element={<Home/>}/>
+>>>>>>> 0e8632f98defd1f0d83bad351486b6fa6b17c271
                 </Routes>
 
                 <Navbar/>

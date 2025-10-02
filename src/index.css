@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    --foreground: 210 15% 20%;
+    --lightblue:hsl(215 75% 75%);
+    --verylightgrey:hsl(240 15% 98%);
+    --blue:hsl(215 75% 55%);
+    --border-color:hsl(215 20% 88%);
+    --cian:#29dda1;
+    --red:#ef4444;
+    /* color-scheme: light dark; */
+    color:hsl(var(--foreground));
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
