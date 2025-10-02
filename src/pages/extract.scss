@@ -1,0 +1,96 @@
+$purchase-height: 5.2rem;
+
+main {
+    padding: 1rem;
+}
+
+section.purchases {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    width: 100%;
+
+    div.day {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.4rem;
+
+        h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 400;
+            width: 16rem;
+            padding: .2rem 0;
+            color: #505050;
+            border-radius: .6rem;
+            border: 1px solid #dddddd;
+            background-color: white;
+        }
+
+        div.purchase {
+            display: grid;
+            grid-template-columns: $purchase-height 1fr;
+            gap: 1.6rem;
+
+            width: 100%;
+            padding: 0 2rem;
+            height: $purchase-height;
+
+            div.icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: $purchase-height;
+                height: $purchase-height;
+                border-radius: .8rem;
+                border: 1px solid #dddddd;
+                background-color: #eeeeee;
+
+                svg {
+                    font-size: 2rem;
+                    color: #999999;
+                }
+            }
+
+            div.content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+                
+                height: 100%;
+
+                div.row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    span {
+                        font-size: 1rem;
+                        color: #999999;
+                        padding: .2rem .4rem;
+                        border-radius: .2rem;
+                        border: 1px solid #dddddd;
+                        background-color: #eeeeee;
+                    }
+
+                    h3 {
+                        color: #555555;
+                        font-size: 1.4rem;
+                        font-weight: 400;
+                    }
+
+                    p {
+                        color: #555555;
+                        font-size: 1rem;
+                    }
+                }
+            }
+    }
+        
+    }
+}

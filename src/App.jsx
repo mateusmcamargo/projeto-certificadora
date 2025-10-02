@@ -14,6 +14,7 @@ import '@fontsource-variable/montserrat';
 
 // style
 import './App.css'
+import { Extract } from './pages/Extract';
 
 function App() {
     
@@ -60,7 +61,7 @@ function App() {
         <Router>
             <div className='app'>
                 <Routes>
-                    {/* <Route path='/extract' element={<Extract/>}/> */}
+                    <Route path='/extract' element={<Extract/>}/>
                 </Routes>
 
                 <Navbar/>

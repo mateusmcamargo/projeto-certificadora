@@ -12,8 +12,8 @@ export function Navbar() {
 
                 <div className='pages'>
                     <NavLink to='/extract' className='page'>
-                        <FaReceipt/>
-                        <span>Extrato</span>
+                        <FaReceipt className='active'/>
+                        <span className='active'>Extrato</span>
                     </NavLink>
                     <NavLink to='/cards' className='page'>
                         <FaCreditCard/>

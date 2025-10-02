@@ -24,7 +24,7 @@ section.navbar nav button.add {
   height: 7.2rem;
   border-radius: 50%;
   border: 4px solid white;
-  background-color: black;
+  background-color: gray;
 }
 section.navbar nav button.add svg {
   font-size: 4rem;
@@ -41,9 +41,11 @@ section.navbar nav div.pages a.page {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  background-color: white;
 }
 section.navbar nav div.pages a.page svg, section.navbar nav div.pages a.page span {
+  color: gray;
+}
+section.navbar nav div.pages a.page svg.active, section.navbar nav div.pages a.page span.active {
   color: black;
 }
 section.navbar nav div.pages a.page svg {
