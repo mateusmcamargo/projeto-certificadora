@@ -1,26 +1,45 @@
 export const compras = [
     {
         id:"sdojw",
+        userId:"usuario1",
         cartaoId:"i3j32",
-        groupId:"grupo1",
-        faturaId:"", // caso não tenha fatura, poderia ser string vazia?
+        faturaId:"idFatura1",
         title:"Requeijão",
         category:"Laticínio",
         price:20.99,
         qtd:2,
-        thereIsGroupId:true,
-        data:{dia:20,mes:2,ano:2024}
+        data:null//formato de data ideal
     },
     {
+        userId:"usuario2",
         id:"ethvf",
-        cartaoId:"33k4o",
-        groupId:"", // caso não tenha grupo, poderia ser string vazia?
-        faturaId:"idFatura1",
+        cartaoId:"hn267",
         title:"Bisteca suína 500g",
         category:"Carne",
         price:40.99,
-        thereIsGroupId:false,
         qtd:1,
-        data:{dia:10,mes:3,ano:2025}
+        data:null//formato de data ideal
     },
+    {
+        cartaoId:"s3j66",
+        title:"Requeijão",
+        category:"Laticínio",
+        price:10.99,
+        qtd:5,
+        data:null//formato de data ideal
+    }    
 ]
+/*
+export interface Purchase {
+  id: string;
+  userId: string;                  // id do usuário dono da compra
+  title: string;                    // "Requeijão"
+  category: string;                 // "Laticínio"
+  price: number;                    // 20.99
+  qtd: number;                      // 2
+  cartaoId: string;                 // pode ser "dinheiro" também
+  faturaId?: string;                // opcional
+  data: FirebaseFirestore.Timestamp;
+  criadoEm: FirebaseFirestore.Timestamp;
+}
+*/

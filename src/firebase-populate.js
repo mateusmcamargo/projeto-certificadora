@@ -1,9 +1,8 @@
 import { collection, addDoc, Timestamp, serverTimestamp } from 'firebase/firestore';
-import { database } from './firebase-config.js';
-import firebase from 'firebase/compat/app';
+import { db } from './firebase-config.js';
 
 try {
-    const docRef = await addDoc(collection(database, 'users'), {
+    const docRef = await addDoc(collection(db, 'users'), {
         name: 'josé da silva',
         birth: Timestamp.fromDate(new Date('04/10/1985')),
         cpf: '15485485632',
