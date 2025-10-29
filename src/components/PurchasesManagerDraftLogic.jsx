@@ -3,6 +3,7 @@ import { PurchasesDraftProvider } from '../hooks/PurchasesDraftContext';
 import { nanoid } from 'nanoid';
 import { compras } from '../data/compras';
 import { addPurchases } from '../useCases/purchaseCRUD';
+import { useAuth } from '../hooks/AuthContext';
 
 const PurchasesManagerDraftLogic = ({children}) => {
     const [purchasesList, setPurchasesList] = useState(compras);
@@ -39,11 +40,11 @@ const PurchasesManagerDraftLogic = ({children}) => {
 
     // authorize é somente para permitir agrupamento ou não, não sendo uma propriedade da entidade no banco.
     const [group, setGroup] = useState({id:nanoid(), authorize:true, idUser:"usuario1", name:"", createdAt:{dia:16,mes:9,ano:2025}});
+    const {authData} = useAuth();
 
     const save = ()=>{
-      // falta implementar cartaoId e userId dinâmico (API)
-      console.log("oi");
-      const purchases = purchasesList.map(el => ({...el, userId:"usuario4", cartaoId:selectedCardId}));
+      // falta implementar cartaoId dinâmico (API)      
+      const purchases = purchasesList.map(el => ({...el, userId:authData.user.email, cartaoId:selectedCardId}));
       addPurchases(purchases)
       .then((ids) => {console.log("Compras salvas com IDs: ", ids)})
       .catch(err => console.error("Erro ao salvar compras: ", err));

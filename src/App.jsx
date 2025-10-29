@@ -1,7 +1,7 @@
 import './App.css'
 // react and npm
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 
 // components
 import { Navbar } from './components/navbar/Navbar'
@@ -18,6 +18,9 @@ import { testInvoiceCRUD } from './useCases/tests/invoice';
 import { testCardCRUD } from './useCases/tests/card';
 import { testUserCRUD } from './useCases/tests/user';
 import { testPurchaseCrud } from './useCases/tests/purchase';
+import { AuthProvider } from './hooks/AuthContext';
+import ProtectedRoute from './pages/ProtectedRoute';
+import Login from './pages/Login';
 
 function App() {
 
@@ -42,16 +45,18 @@ function App() {
     }, []);
 
     return (
-        <Router>
-            <div className='app'>
-                <Routes>
-                    <Route path='/extract' element={<Extract/>}/>
-                    <Route path='/' element={<Home/>}/>
-                </Routes>
-
-                <Navbar/>
-            </div>
-        </Router>
+        <BrowserRouter>
+            <AuthProvider>
+                <div className='app'>
+                    <Routes>
+                        <Route path='/extract' element={<ProtectedRoute><Extract/></ProtectedRoute>}/>
+                        <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+                        <Route path='/login' element={<Login/>}/>
+                    </Routes>
+                    <Navbar/>
+                </div>
+            </AuthProvider>
+        </BrowserRouter>
     )
 }
 
