@@ -19,6 +19,7 @@ const PurchasesManagerDraftSidebar = () => {
         handleCardSelection,
         group,
         setGroup,
+        save
     } = usePurchasesDraftContext();
 
     const onSelect = (id, selected) => {
@@ -93,7 +94,7 @@ const PurchasesManagerDraftSidebar = () => {
                 </div>
                 <div style={{display:"flex", gap:".25rem"}}>
                     <Button.Cancel style={{flexShrink:2}}>Cancelar</Button.Cancel>
-                    <Button.Submit style={{ flexShirnk:1}}>Salvar</Button.Submit>
+                    <Button.Submit onClick={save} style={{ flexShirnk:1}}>Salvar</Button.Submit>
                 </div>
             </div>
         </div>

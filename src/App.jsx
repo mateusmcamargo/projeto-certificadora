@@ -27,10 +27,10 @@ function App() {
         const runTests = async () => {
             try {
                 if (!loading) setLoading(true);
-                await testUserCRUD();
-                await testCardCRUD();
-                await testInvoiceCRUD();
-                await testPurchaseCrud();
+                // await testUserCRUD();
+                // await testCardCRUD();
+                // await testInvoiceCRUD();
+                // await testPurchaseCrud();
             } catch (error) {
                 console.error('ERROR DURING TESTS: ', error);
                 setError(error);

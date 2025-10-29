@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import { PurchasesDraftProvider } from '../hooks/PurchasesDraftContext';
 import { nanoid } from 'nanoid';
 import { compras } from '../data/compras';
+import { addPurchases } from '../useCases/purchaseCRUD';
 
 const PurchasesManagerDraftLogic = ({children}) => {
     const [purchasesList, setPurchasesList] = useState(compras);
     const [selectedPurchases, setSelectedPurchases] = useState([]);
     const [changesForm, setChangesForm] = useState({category:"", qtd:0, price:0})
     // devo corrigir a inserção de dados
-    const addPurchase = () => {setPurchasesList((prevPurchasesList) => [{ id:nanoid(), title: "Carne moída 500 g", category: "carne", price: 10, qtd:1 }, ...prevPurchasesList]);}
+    const addPurchase = () => {setPurchasesList((prevPurchasesList) => [
+      { id:nanoid(), title: "Carne moída 500 g", category: "carne", price: 10, qtd:1 }, ...prevPurchasesList]);
+    }
     const addMultiplePurchases = ()=>{}
     const changePurchase = ()=>{}
     const deletePurchase = ()=>{}
@@ -38,7 +41,12 @@ const PurchasesManagerDraftLogic = ({children}) => {
     const [group, setGroup] = useState({id:nanoid(), authorize:true, idUser:"usuario1", name:"", createdAt:{dia:16,mes:9,ano:2025}});
 
     const save = ()=>{
-      
+      // falta implementar cartaoId e userId dinâmico (API)
+      console.log("oi");
+      const purchases = purchasesList.map(el => ({...el, userId:"usuario4", cartaoId:selectedCardId}));
+      addPurchases(purchases)
+      .then((ids) => {console.log("Compras salvas com IDs: ", ids)})
+      .catch(err => console.error("Erro ao salvar compras: ", err));
     }
 
   return (
