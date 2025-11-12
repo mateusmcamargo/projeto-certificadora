@@ -21,6 +21,8 @@ import { testPurchaseCrud } from './useCases/tests/purchase';
 import { AuthProvider } from './hooks/AuthContext';
 import ProtectedRoute from './pages/ProtectedRoute';
 import Login from './pages/Login';
+import { PurchasesProvider } from './hooks/PurchasesContext';
+import { ProfileProvider } from './hooks/ProfileContext';
 
 function App() {
 
@@ -30,10 +32,10 @@ function App() {
         const runTests = async () => {
             try {
                 if (!loading) setLoading(true);
-                // await testUserCRUD();
-                // await testCardCRUD();
-                // await testInvoiceCRUD();
-                // await testPurchaseCrud();
+                await testUserCRUD();
+                await testCardCRUD();
+                await testInvoiceCRUD();
+                await testPurchaseCrud();
             } catch (error) {
                 console.error('ERROR DURING TESTS: ', error);
                 setError(error);
@@ -47,14 +49,18 @@ function App() {
     return (
         <BrowserRouter>
             <AuthProvider>
-                <div className='app'>
-                    <Routes>
-                        <Route path='/extract' element={<ProtectedRoute><Extract/></ProtectedRoute>}/>
-                        <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
-                        <Route path='/login' element={<Login/>}/>
-                    </Routes>
-                    <Navbar/>
-                </div>
+                <ProfileProvider>
+                    <PurchasesProvider>
+                        <div className='app'>
+                            <Routes>
+                                <Route path='/extract' element={<ProtectedRoute><Extract/></ProtectedRoute>}/>
+                                <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+                                <Route path='/login' element={<Login/>}/>
+                            </Routes>
+                            <Navbar/>
+                        </div>
+                    </PurchasesProvider>
+                </ProfileProvider>
             </AuthProvider>
         </BrowserRouter>
     )

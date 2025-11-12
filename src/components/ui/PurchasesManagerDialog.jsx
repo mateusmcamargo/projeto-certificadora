@@ -45,6 +45,10 @@ const PurchasesManagerDialog = () => {
 			<Subtitle>Compras selecionadas: {selectedQtd}</Subtitle>
 			<div>
 				<Label>
+					Título
+					<Input placeholder="Ex: Carne" value={changesForm.title} onChange={(e) => setChangesForm(form => ({...form, title:e.target.value}))}/>
+				</Label>
+				<Label>
 					Categoria
 					<Input placeholder="Ex:Comida" value={changesForm.category} onChange={onCategoryChange}/>
 				</Label>

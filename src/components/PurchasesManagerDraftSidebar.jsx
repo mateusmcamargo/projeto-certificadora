@@ -1,12 +1,9 @@
 import Button from './ui/Button'
-import Label from './ui/Label'
 import { usePurchasesDraftContext } from '../hooks/PurchasesDraftContext';
 import Purchase from './Purchase';
-import Input from './ui/Input';
 import { useCallback, useMemo } from 'react';
 import Subtitle from './font/Subtitle';
-import { cartoes } from '../data/cartoes'
-import Text from "./font/Text"
+import { useProfileContext } from '../hooks/ProfileContext';
 
 const PurchasesManagerDraftSidebar = () => {
     const {
@@ -17,8 +14,6 @@ const PurchasesManagerDraftSidebar = () => {
         setSelectedPurchases,
         selectedCardId,
         handleCardSelection,
-        group,
-        setGroup,
         save
     } = usePurchasesDraftContext();
 
@@ -43,16 +38,21 @@ const PurchasesManagerDraftSidebar = () => {
         </li>
     ))
 
-    const renderCards = () => cartoes.map((c) => (
+    const renderCards = () => {
+        const {profile} = useProfileContext();
+        return profile.cards.map((c) => (
         <li key={c.id}>
-            <Button.Option selected={c.id==selectedCardId} onClick={()=>handleCardSelection(c.id)}>{c.nome}</Button.Option>
+            <Button.Option selected={c.id==selectedCardId} onClick={()=>handleCardSelection(c.id)}>{c.title}</Button.Option>
         </li>
-    ))
+        ))
+    }
 
     const total = useMemo(() => purchasesList.reduce((acc, cv) => (cv.price*cv.qtd + acc),0).toFixed(2), [purchasesList]);
     
     return (
         <div style={{padding:"1rem"}}>
+            <Subtitle>Rascunho de compras</Subtitle>
+            <div style={{marginBottom:"1rem"}}></div>
             <div style={{display:"flex", justifyContent:"flex-end", marginBottom:".5rem"}}>
                 <Button.Default onClick={addPurchase} style={{width:"max-content", fontSize:".875rem"}}>+ Adicionar</Button.Default>
             </div>
@@ -61,31 +61,6 @@ const PurchasesManagerDraftSidebar = () => {
             </ul>
             <div style={{display:"flex", flexDirection:"column", marginTop:"2rem", gap:"1rem"}}>
                 <h3>Total: R$ {total}</h3>
-                <div style={{display:"flex", gap:".25rem"}}>
-                    <Button.Option 
-                        selected={group.authorize}
-                        onClick={()=>{setGroup(el => ({...el, authorize:true}))}}
-                    >Agrupar</Button.Option>
-                    <Button.Option 
-                        selected={!group.authorize}
-                        onClick={()=>{setGroup(el => ({...el, authorize:false}))}}
-                    >Não agrupar</Button.Option>
-                </div>
-                {
-                    group.authorize &&
-                    <div style={{display:"flex", flexDirection:"column", gap:".5rem", paddingBottom:"1rem", borderBottom:"2px solid var(--border-color)"}}>
-                        <Label>
-                            Nome do bloco de compras:
-                            <Input placeholder='Ex: Supermercado XYZ'/>
-                        </Label>
-                    </div>
-                }
-                <div style={{display:"flex", flexDirection:"column", gap:".5rem", paddingBottom:"1rem", borderBottom:"2px solid var(--border-color)"}}>
-                    <Label>
-                        Data das compras:
-                        <Input placeholder='Ex: Supermercado XYZ'/>
-                    </Label>
-                </div>
                 <div style={{display:"flex", flexDirection:"column", gap:".5rem", paddingBottom:"1rem", borderBottom:"2px solid var(--border-color)"}}>
                     <Subtitle>Cartão:</Subtitle>
                     <ul style={{listStyle:"none", display:'flex', flexWrap:'wrap', gap:".5rem"}}>

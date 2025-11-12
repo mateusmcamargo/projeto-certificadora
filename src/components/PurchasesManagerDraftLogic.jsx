@@ -8,7 +8,7 @@ import { useAuth } from '../hooks/AuthContext';
 const PurchasesManagerDraftLogic = ({children}) => {
     const [purchasesList, setPurchasesList] = useState(compras);
     const [selectedPurchases, setSelectedPurchases] = useState([]);
-    const [changesForm, setChangesForm] = useState({category:"", qtd:0, price:0})
+    const [changesForm, setChangesForm] = useState({title:"", category:"", qtd:0, price:0})
     // devo corrigir a inserção de dados
     const addPurchase = () => {setPurchasesList((prevPurchasesList) => [
       { id:nanoid(), title: "Carne moída 500 g", category: "carne", price: 10, qtd:1 }, ...prevPurchasesList]);
