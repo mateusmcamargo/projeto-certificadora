@@ -17,6 +17,7 @@
 }
 
 .block {
+    width: 90vw;
     padding: 4rem 2rem;
     background-color: white;
     border-radius: 1rem;

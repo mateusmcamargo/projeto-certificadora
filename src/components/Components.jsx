@@ -1,7 +1,7 @@
 export { CardFilterSection }            from './CardFilterSection';
 export { ExpensesCard }                 from './ExpensesCard';
 export { Loading }                      from './Loading';
-export { NotaFiscalSection }            from './NotaFiscalSection';
+export { Invoice }                      from './invoice/Invoice';
 export { Purchase }                     from './purchase/Purchase';
 export { PurchasesList }                from './PurchasesList';
 export { PurchasesManagerDraftLogic }   from './PurchasesManagerDraftLogic';

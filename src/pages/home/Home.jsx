@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import {
   PurchasesManagerDraftLogic,
-  NotaFiscalSection,
+  Invoice,
   NewPurchase,
   ExpensesCard,
   PurchasesList
@@ -59,7 +59,7 @@ const Home = () => {
                 </div>                    
                     <div style={{display:'flex', alignItems:"flex-start", flexWrap:"wrap", justifyContent:'center'}}>
                         <PurchasesManagerDraftLogic>
-                            <NotaFiscalSection/>
+                            <Invoice/>
                             <NewPurchase/>
                             <PurchasesManagerDialog/>
                         </PurchasesManagerDraftLogic>
