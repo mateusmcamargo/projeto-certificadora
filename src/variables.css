@@ -1,6 +1,8 @@
 :root {
     --color-close: #ef4444;
-    --color-light-blue: #8fb7ef;
+    --color-blue: #367ee2;
+    --color-blue-light: #8fb7ef;
+    --color-blue-lighter:rgb(216, 227, 245);
 
     --button-padding: 1rem 2rem;
     --button-border-radius: 2rem;
