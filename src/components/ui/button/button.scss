@@ -8,11 +8,11 @@
     cursor: pointer;
 
     &.default {
-        background-color: var(--blue);
+        //background-color: $primary;
     }
 
     &.submit {
-        background-color: var(--blue);
+        background-color: red;
 
         &:disabled {
             background-color: var(--lightblue);

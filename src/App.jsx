@@ -9,8 +9,9 @@ import { Navbar } from './components/navbar/Navbar'
 import '@fontsource-variable/montserrat';
 
 // style
-import './App.css'
-import './index.css'
+import './app.css'
+import './colors.css'
+
 import Home from './pages/home/Home';
 import { Extract } from './pages/Extract';
 import { testInvoiceCRUD } from './useCases/tests/invoice';

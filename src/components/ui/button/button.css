@@ -7,11 +7,8 @@
   color: white;
   cursor: pointer;
 }
-.button.default {
-  background-color: var(--blue);
-}
 .button.submit {
-  background-color: var(--blue);
+  background-color: red;
 }
 .button.submit:disabled {
   background-color: var(--lightblue);

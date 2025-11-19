@@ -1,4 +1,4 @@
-import './button.css';
+import "./button.scss";
 
 const Default = ({children, style, ...props}) => {
     return (
