@@ -1,0 +1,11 @@
+:root {
+    --foreground: 210 15% 20%;
+    --lightblue:hsl(215 75% 75%);
+    --verylightgrey:hsl(240 15% 98%);
+    --blue:hsl(215 75% 55%);
+    --border-color:hsl(215 20% 88%);
+    --cian:#29dda1;
+    --red:#ef4444;
+    color: hsl(var(--foreground));
+    /* color-scheme: light dark; */
+}
