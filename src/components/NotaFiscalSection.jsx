@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Button from "./ui/Button"
+import { Button } from './ui/Ui';
 import Subtitle from "./font/Subtitle"
 import Text from "./Font/Text"
 import Input from "./ui/Input"

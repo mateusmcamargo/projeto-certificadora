@@ -1,4 +1,4 @@
-import Button from './ui/Button'
+import { Button } from './ui/Ui';
 import { usePurchasesDraftContext } from '../hooks/PurchasesDraftContext';
 import { Purchase } from "./Components"
 import { useCallback, useMemo } from 'react';
