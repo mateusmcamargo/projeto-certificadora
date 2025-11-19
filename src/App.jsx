@@ -1,4 +1,3 @@
-import './App.css'
 // react and npm
 import { useEffect, useState } from 'react';
 import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
@@ -12,7 +11,7 @@ import '@fontsource-variable/montserrat';
 // style
 import './App.css'
 import './index.css'
-import Home from './pages/home';
+import Home from './pages/home/Home';
 import { Extract } from './pages/Extract';
 import { testInvoiceCRUD } from './useCases/tests/invoice';
 import { testCardCRUD } from './useCases/tests/card';
@@ -53,7 +52,11 @@ function App() {
                     <PurchasesProvider>
                         <div className='app'>
                             <Routes>
-                                <Route path='/extract' element={<ProtectedRoute><Extract/></ProtectedRoute>}/>
+                                <Route path='/extract' element={
+                                    <ProtectedRoute>
+                                        <Extract/>
+                                    </ProtectedRoute>
+                                }/>
                                 <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
                                 <Route path='/login' element={<Login/>}/>
                             </Routes>
