@@ -1,0 +1,15 @@
+h1.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+}
+
+h2.subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+p.text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}/*# sourceMappingURL=font.css.map */
