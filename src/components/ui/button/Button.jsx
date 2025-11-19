@@ -24,6 +24,14 @@ const Cancel = ({children, ...props}) => {
     )
 }
 
+const Add = ({children, selected, ...props}) => {
+    return (
+        <button className='button add' {...props}>
+            {children}
+        </button>
+    )
+}
+
 const Option = ({children, selected, ...props}) => {
     return (
         <button className='button option' {...props}>
@@ -35,6 +43,7 @@ const Option = ({children, selected, ...props}) => {
 const Button = {
     Default,
     Submit,
+    Add,
     Option,
     Cancel
 }

@@ -1,4 +1,8 @@
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   width: 100%;
   padding: 1rem 2rem;
   border: none;
@@ -6,6 +10,9 @@
   font-size: var(--button-font-size);
   font-weight: var(--button-font-weight);
   cursor: pointer;
+}
+.button i {
+  font-size: var(--button-font-size);
 }
 .button.default {
   color: var(--default-fg);

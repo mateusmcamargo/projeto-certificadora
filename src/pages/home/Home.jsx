@@ -13,7 +13,6 @@ import PurchasesManagerDialog from '../../components/ui/PurchasesManagerDialog'
 import PizzaChart from '../../components/ui/PizzaChart'
 import { usePurchasesContext } from '../../hooks/PurchasesContext'
 import { useProfileContext } from '../../hooks/ProfileContext'
-import { Button } from '../../components/ui/Ui';
 import { getPurchases } from '../../useCases/purchaseCRUD'
 import { calcTotalExpenses } from '../../utils/calcTotalExpenses'
 import Title from '../../components/Font/Title'

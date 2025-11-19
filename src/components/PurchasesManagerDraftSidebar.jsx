@@ -54,7 +54,13 @@ export function PurchasesManagerDraftSidebar() {
             <Subtitle>Rascunho de compras</Subtitle>
             <div style={{marginBottom:"1rem"}}></div>
             <div style={{display:"flex", justifyContent:"flex-end", marginBottom:".5rem"}}>
-                <Button.Default onClick={addPurchase} style={{width:"max-content", fontSize:".875rem"}}>+ Adicionar</Button.Default>
+                <Button.Add
+                    onClick={addPurchase}
+                    style={{width:"max-content"}}
+                >
+                    <i className='fa-solid fa-plus'></i>
+                    Adicionar
+                </Button.Add>
             </div>
             <ul style={{display:'flex', flexDirection:'column', gap:'.25rem', maxHeight:400, overflowY:"auto", boxSizing:"content-box", scrollbarWidth:"thin"}}>
                 {renderPurchases()}

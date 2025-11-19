@@ -1,13 +1,23 @@
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
     width: 100%;
     padding: 1rem 2rem;
     
+
     border: none;
     border-radius: var(--button-border-radius);
     
     font-size: var(--button-font-size);
     font-weight: var(--button-font-weight);
     cursor: pointer;
+
+    i {
+        font-size: var(--button-font-size);
+    }
 
     &.default {
         color: var(--default-fg);
