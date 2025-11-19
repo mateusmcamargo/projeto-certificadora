@@ -7,7 +7,7 @@ import Title from "../components/Font/Title";
 import { nanoid } from "nanoid";
 import Label from "../components/ui/Label";
 import Input from "../components/ui/Input";
-import Subtitle from "../components/Font/Subtitle";
+import Subtitle from "../components/font/Subtitle";
 
 const Login = () => {
     const navigate = useNavigate();
