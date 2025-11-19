@@ -74,8 +74,20 @@ export function PurchasesManagerDraftSidebar() {
                     </ul>
                 </div>
                 <div style={{display:"flex", gap:".25rem"}}>
-                    <Button.Cancel style={{flexShrink:2}}>Cancelar</Button.Cancel>
-                    <Button.Submit onClick={save} style={{ flexShirnk:1}}>Salvar</Button.Submit>
+                    <Button.Cancel
+                        style={{flexShrink:2}}
+                    >
+                        <i className='fa-solid fa-xmark'></i>
+                        Cancelar
+                    </Button.Cancel>
+
+                    <Button.Submit
+                        onClick={save}
+                        style={{flexShirnk:1}}
+                    >
+                        <i className='fa-solid fa-floppy-disk'></i>
+                        Salvar
+                    </Button.Submit>
                 </div>
             </div>
         </div>
