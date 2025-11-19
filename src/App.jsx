@@ -7,10 +7,13 @@ import { Navbar } from './components/navbar/Navbar'
 
 // fonts
 import '@fontsource-variable/montserrat';
+import '@fontsource/poppins';
+import '@fontsource/lexend-deca';
 
 // style
-import './app.css'
-import './colors.css'
+import './app.css';
+import './colors.css';
+import './variables.css';
 
 import Home from './pages/home/Home';
 import { Extract } from './pages/Extract';

@@ -1,4 +1,4 @@
-import "./button.scss";
+import './button.css';
 
 const Default = ({children, style, ...props}) => {
     return (
@@ -24,18 +24,9 @@ const Cancel = ({children, ...props}) => {
     )
 }
 
-const optionSelectedStyle = {
-    backgroundColor: "var(--blue)",
-    color: "white",
-}
-const optionUnselectedStyle = {
-    backgroundColor: "white",
-    color: "var(--blue)",
-}
-
 const Option = ({children, selected, ...props}) => {
     return (
-        <button {...props} style={{...(selected ? optionSelectedStyle : optionUnselectedStyle) , fontSize:".875rem", fontWeight:200, width:"100%", padding:".5rem 1rem", border:"2px solid var(--blue)", borderRadius:".5rem"}}>
+        <button className='button option' {...props}>
             {children}
         </button>
     )

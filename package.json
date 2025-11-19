@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fontsource-variable/montserrat": "^5.2.8",
+    "@fontsource/lexend-deca": "^5.2.10",
+    "@fontsource/poppins": "^5.2.7",
     "firebase": "^12.1.0",
     "nanoid": "^5.1.5",
     "react": "^19.1.1",
