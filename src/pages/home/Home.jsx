@@ -1,19 +1,26 @@
 import { useEffect, useState } from 'react'
-import PurchasesManagerDraftLogic from '../../components/PurchasesManagerDraftLogic'
-import NotaFiscalSection from '../../components/NotaFiscalSection'
+
+import {
+  PurchasesManagerDraftLogic,
+  NotaFiscalSection,
+  PurchasesManagerDraftSidebar,
+  ExpensesCard,
+  PurchasesList
+} from '../../components/Components';
+
+
 import PurchasesManagerDialog from '../../components/ui/PurchasesManagerDialog'
-import PurchasesManagerDraftSidebar from '../../components/PurchasesManagerDraftSidebar'
 import PizzaChart from '../../components/ui/PizzaChart'
 import { usePurchasesContext } from '../../hooks/PurchasesContext'
-import ExpensesCard from '../../components/ExpensesCard'
 import { useProfileContext } from '../../hooks/ProfileContext'
 import Button from '../../components/ui/Button'
 import { getPurchases } from '../../useCases/purchaseCRUD'
-import PurchasesList from '../../components/PurchasesList'
 import { calcTotalExpenses } from '../../utils/calcTotalExpenses'
-import CardFilterSection from '../../components/CardFilterSection'
 import Title from '../../components/Font/Title'
-import Subtitle from '../../components/font/Subtitle'
+import Subtitle from '../../components/font/Subtitle';
+
+// components
+import { CardFilterSection } from '../../components/Components'; 
 
 const Home = () => {
 
