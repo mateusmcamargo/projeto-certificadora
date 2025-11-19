@@ -1,0 +1,39 @@
+.button {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+}
+.button.default {
+  background-color: var(--blue);
+}
+.button.submit {
+  background-color: var(--blue);
+}
+.button.submit:disabled {
+  background-color: var(--lightblue);
+  cursor: not-allowed;
+}
+.button.cancel {
+  background-color: var(--cian);
+}
+.button.option {
+  font-size: 0.875rem;
+  font-weight: 200;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--blue);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.button.option.selected {
+  background-color: var(--blue);
+  color: white;
+}
+.button.option.unselected {
+  background-color: white;
+  color: var(--blue);
+}/*# sourceMappingURL=button.css.map */
