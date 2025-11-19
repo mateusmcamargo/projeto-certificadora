@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './ui/Button'
 
-const CardFilterSection = ({profile, cardFilter, setCardFilter}) => {
+export function CardFilterSection({profile, cardFilter, setCardFilter}) {
 
     return (
         <div>
@@ -21,7 +21,5 @@ const CardFilterSection = ({profile, cardFilter, setCardFilter}) => {
                 </ul>
             }
         </div>
-  )
+  );
 }
-
-export default CardFilterSection

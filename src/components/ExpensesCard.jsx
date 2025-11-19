@@ -1,7 +1,7 @@
 import React from 'react'
 import { usePurchasesContext } from '../hooks/PurchasesContext';
 
-const ExpensesCard = ({title, value, icon, description}) => {
+export function ExpensesCard({title, value, icon, description}) {
     const {purchasesList} = usePurchasesContext();
     if(!purchasesList) return <></>;
     return (
@@ -17,7 +17,5 @@ const ExpensesCard = ({title, value, icon, description}) => {
                 {description}
             </span>
         </div>
-    )
+    );
 }
-
-export default ExpensesCard

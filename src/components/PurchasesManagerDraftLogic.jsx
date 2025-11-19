@@ -5,7 +5,7 @@ import { compras } from '../data/compras';
 import { addPurchases } from '../useCases/purchaseCRUD';
 import { useAuth } from '../hooks/AuthContext';
 
-const PurchasesManagerDraftLogic = ({children}) => {
+export function PurchasesManagerDraftLogic({children}) {
     const [purchasesList, setPurchasesList] = useState(compras);
     const [selectedPurchases, setSelectedPurchases] = useState([]);
     const [changesForm, setChangesForm] = useState({title:"", category:"", qtd:0, price:0})
@@ -75,5 +75,3 @@ const PurchasesManagerDraftLogic = ({children}) => {
     </PurchasesDraftProvider>
   );
 }
-
-export default PurchasesManagerDraftLogic

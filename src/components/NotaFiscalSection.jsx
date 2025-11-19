@@ -5,10 +5,10 @@ import Text from "./Font/Text"
 import Input from "./ui/Input"
 import Label from "./ui/Label"
 import Card from "./ui/Card"
-import Loading from "./Loading"
+import { Loading } from "./Components"
 import { usePurchasesDraftContext } from "../hooks/PurchasesDraftContext"
 
-const NotaFiscalSection = () => {
+export function NotaFiscalSection() {
 
 	const [value, setValue] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
@@ -45,5 +45,3 @@ const NotaFiscalSection = () => {
 		</Card>
 	)
 }
-
-export default NotaFiscalSection

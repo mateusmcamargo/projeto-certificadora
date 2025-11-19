@@ -1,9 +1,9 @@
 import React from 'react'
 import { usePurchasesContext } from '../hooks/PurchasesContext';
 import { nanoid } from 'nanoid';
-import Purchase from './Purchase';
+import { Purchase } from "./Components"
 
-const PurchasesList = () => {
+export function PurchasesList() {
     const {purchasesList} = usePurchasesContext();
     return (
         <div>
@@ -19,5 +19,3 @@ const PurchasesList = () => {
         </div>
     )
 }
-
-export default PurchasesList

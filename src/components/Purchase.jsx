@@ -2,7 +2,7 @@ import Text from './Font/Text'
 import CloseSVG from './ui/CloseSVG'
 
 
-const Purchase = ({id, qtd, selected, title, category, price, onSelect, onClose, data}) => {
+export function Purchase({id, qtd, selected, title, category, price, onSelect, onClose, data}) {
   const date = data?.toDate();
   return (
     <article style={{backgroundColor:"var(--verylightgrey)", display:"flex", justifyContent:"space-between", gap:"1rem", alignItems:"flex-start", padding:"1rem"}}>
@@ -26,7 +26,5 @@ const Purchase = ({id, qtd, selected, title, category, price, onSelect, onClose,
         }
       </div>
    </article>
-  )
+  );
 }
-
-export default Purchase

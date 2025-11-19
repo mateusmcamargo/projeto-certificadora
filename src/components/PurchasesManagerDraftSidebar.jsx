@@ -1,11 +1,11 @@
 import Button from './ui/Button'
 import { usePurchasesDraftContext } from '../hooks/PurchasesDraftContext';
-import Purchase from './Purchase';
+import { Purchase } from "./Components"
 import { useCallback, useMemo } from 'react';
 import Subtitle from './font/Subtitle';
 import { useProfileContext } from '../hooks/ProfileContext';
 
-const PurchasesManagerDraftSidebar = () => {
+export function PurchasesManagerDraftSidebar() {
     const {
         purchasesList,
         setPurchasesList,
@@ -75,5 +75,3 @@ const PurchasesManagerDraftSidebar = () => {
         </div>
     )
 }
-
-export default PurchasesManagerDraftSidebar
