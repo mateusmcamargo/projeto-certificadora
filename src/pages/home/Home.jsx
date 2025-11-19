@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import {
   PurchasesManagerDraftLogic,
   NotaFiscalSection,
-  PurchasesManagerDraftSidebar,
+  NewPurchase,
   ExpensesCard,
   PurchasesList
 } from '../../components/Components';
@@ -61,7 +61,7 @@ const Home = () => {
                     <div style={{display:'flex', alignItems:"flex-start", flexWrap:"wrap", justifyContent:'center'}}>
                         <PurchasesManagerDraftLogic>
                             <NotaFiscalSection/>
-                            <PurchasesManagerDraftSidebar/>
+                            <NewPurchase/>
                             <PurchasesManagerDialog/>
                         </PurchasesManagerDraftLogic>
                     </div>
