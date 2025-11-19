@@ -41,7 +41,13 @@ export function NotaFiscalSection() {
 					<Input value={value} onChange={handleChange} placeholder="https://exemplo.com"/>
 				</Label>
 			</div>
-			<Button.Submit onClick={onSubmit} disabled={!Boolean(value)}>Fazer consulta de compras</Button.Submit>
+			<Button.Submit
+				onClick={onSubmit}
+				disabled={!Boolean(value)}
+			>
+				<i className='fa-solid fa-magnifying-glass'></i>
+				Fazer consulta
+			</Button.Submit>
 		</Card>
 	)
 }
