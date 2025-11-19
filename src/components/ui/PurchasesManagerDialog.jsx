@@ -3,7 +3,7 @@ import { Button } from './Ui';
 import Input from './Input'
 import Label from './Label'
 import { usePurchasesDraftContext } from '../../hooks/PurchasesDraftContext'
-import Subtitle from '../font/Subtitle'
+import Font from '../font/Font'
 
 const dialogStyle = (enabled) => ({
 		display: enabled ? "flex" : "none",
@@ -42,7 +42,7 @@ const PurchasesManagerDialog = () => {
 
 	return (
 		<section role="edit-purchases-dialog" style={dialogStyle(selectedQtd > 0)}>
-			<Subtitle>Compras selecionadas: {selectedQtd}</Subtitle>
+			<Font.Subtitle>Compras selecionadas: {selectedQtd}</Font.Subtitle>
 			<div>
 				<Label>
 					Título

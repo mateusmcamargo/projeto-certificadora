@@ -1,0 +1,62 @@
+.new-purchase {
+    h3 {
+        font-size: 2rem;
+    }
+
+    .title-spacing {
+        margin-bottom: 1rem;
+    }
+
+    // Add Purchase button row
+    .add-row {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: .5rem;
+
+        .add-btn {
+            width: max-content;
+        }
+    }
+
+    // Purchases list
+    .purchases-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        padding: 1rem;
+        height: 27rem;
+        overflow-y: auto;
+    }
+
+    // Total + card selection block
+    .summary-block {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
+
+        .card-selector {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 2px solid var(--color-purchase-border);
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                gap: .5rem;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    // Action buttons (Cancel / Save)
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+}

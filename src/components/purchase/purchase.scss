@@ -1,0 +1,70 @@
+article.purchase {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    padding: 1rem 2rem;
+    width: 100%;
+    background-color: var(--color-purchase-bg);
+    border: var(--purchase-border);
+    border-radius: var(--purchase-border-radius);
+
+    // Left column: title and category
+    .info {
+        display: flex;
+        flex-direction: column; 
+        align-items: flex-start;
+        justify-content: center;
+
+        h4 {
+            font-size: 1.6rem;
+            color: #222;
+        }
+
+        p.category {
+            font-size: 1.4rem;
+            color: #444;
+
+            padding: .2rem 1.2rem;
+            border-radius: 1rem;
+            background-color: var(--color-purchase-border);
+        }
+    }
+
+    // Right column: price section
+    .price {
+        text-align: right;
+
+        p {
+        }
+    }
+
+    .qtd {
+        font-size: 0.875rem;
+        color: grey;
+    }
+
+    // Checkbox + close button row
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        input, i {
+            font-size: 1.4rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: .4rem;
+        }
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: var(--color-close);
+            color: white;
+        }
+    }
+}

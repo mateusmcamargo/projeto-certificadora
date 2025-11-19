@@ -15,8 +15,7 @@ import { usePurchasesContext } from '../../hooks/PurchasesContext'
 import { useProfileContext } from '../../hooks/ProfileContext'
 import { getPurchases } from '../../useCases/purchaseCRUD'
 import { calcTotalExpenses } from '../../utils/calcTotalExpenses'
-import Title from '../../components/Font/Title'
-import Subtitle from '../../components/font/Subtitle';
+import Font from '../../components/font/Font'
 
 // components
 import { CardFilterSection } from '../../components/Components'; 
@@ -43,7 +42,7 @@ const Home = () => {
         <div style={{marginBlock:"2rem 10rem"}}>
             <section className="purchase-manager-with-webscraping">
                 <div style={{display:'flex', flexDirection:"column", alignItems:'center', flexWrap:"wrap", gap:'1rem'}}>
-                    <Title>Aplicar filtro de cartões</Title>
+                    <Font.Title>Aplicar filtro de cartões</Font.Title>
                     { profile && <CardFilterSection {...{profile, cardFilter, setCardFilter}}/>}
                 </div>
                 <div style={{display:'flex', gap:'1rem', flexWrap:'wrap', justifyContent:"center", marginTop:'1rem'}}>
@@ -53,7 +52,7 @@ const Home = () => {
                 <div style={{display:'flex', gap:'2rem', marginTop:'2rem', flexWrap:'wrap', alignItems:"flex-start", justifyContent:"center"}}>
                         <PizzaChart props={{purchasesList}}/>
                         <div>
-                            <Subtitle>Lista de compras já registradas</Subtitle>
+                            <Font.Subtitle>Lista de compras já registradas</Font.Subtitle>
                             <div style={{marginBottom:"2rem"}}></div>
                             <PurchasesList/>                    
                         </div>

@@ -3,11 +3,10 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "../firebase-config";
 import { Navigate, useNavigate } from "react-router-dom";
 import { saveUser } from "../useCases/userCRUD";
-import Title from "../components/Font/Title";
+import Font from "../components/font/Font";
 import { nanoid } from "nanoid";
 import Label from "../components/ui/Label";
 import Input from "../components/ui/Input";
-import Subtitle from "../components/font/Subtitle";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -47,7 +46,7 @@ const Login = () => {
     return (
         <div>
         <div>
-            <Title>Registrar</Title>
+            <Font.Title>Registrar</Font.Title>
             <Label>Nome</Label>
             <Input type="text" value={userData.nome} onChange={(e) => setUserData({...userData, nome: e.target.value})} />
             <Label>Adicionar depósito inicial (obrigatóio)</Label>
@@ -58,7 +57,7 @@ const Login = () => {
             {
                 userData.deposits.length && 
                 <>
-                    <Subtitle>Depósitos adicionados:</Subtitle>
+                    <Font.Subtitle>Depósitos adicionados:</Font.Subtitle>
                     <ul>
                         {userData.deposits.map((deposit, index) => (
                             <li key={index}>R$ {deposit.value}</li>
@@ -75,7 +74,7 @@ const Login = () => {
             {
                 userData.cards.length && 
                 <>
-                    <Subtitle>Cartões adicionados:</Subtitle>
+                    <Font.Subtitle>Cartões adicionados:</Font.Subtitle>
                     <ul>
                         {userData.cards.map((card, index) => (
                             <li key={index}>{card.title}</li>

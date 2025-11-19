@@ -1,9 +1,17 @@
-import { Button } from '../ui/Ui';
-import { usePurchasesDraftContext } from '../../hooks/PurchasesDraftContext';
+// style
+import './newPurchase.css';
+
+// components
+import { Button }   from '../ui/Ui';
 import { Purchase } from "../Components"
-import { useCallback, useMemo } from 'react';
-import Subtitle from '../font/Subtitle';
+import Font     from '../font/Font';
+
+// hooks
+import { usePurchasesDraftContext } from '../../hooks/PurchasesDraftContext';
 import { useProfileContext } from '../../hooks/ProfileContext';
+
+// react
+import { useCallback, useMemo } from 'react';
 
 export function NewPurchase() {
     const {
@@ -50,47 +58,44 @@ export function NewPurchase() {
     const total = useMemo(() => purchasesList.reduce((acc, cv) => (cv.price*cv.qtd + acc),0).toFixed(2), [purchasesList]);
     
     return (
-        <div style={{padding:"1rem"}}>
-            <Subtitle>Rascunho de compras</Subtitle>
-            <div style={{marginBottom:"1rem"}}></div>
-            <div style={{display:"flex", justifyContent:"flex-end", marginBottom:".5rem"}}>
-                <Button.Add
-                    onClick={addPurchase}
-                    style={{width:"max-content"}}
-                >
+        <div className="block new-purchase">
+            <Font.Title>Adicionar Compras</Font.Title>
+
+            <div className="title-spacing"></div>
+
+            <div className="add-row">
+                <Button.Add onClick={addPurchase}>
                     <i className='fa-solid fa-plus'></i>
-                    Adicionar
+                    NOVA COMPRA
                 </Button.Add>
             </div>
-            <ul style={{display:'flex', flexDirection:'column', gap:'.25rem', maxHeight:400, overflowY:"auto", boxSizing:"content-box", scrollbarWidth:"thin"}}>
+
+            <ul className="purchases-list">
                 {renderPurchases()}
             </ul>
-            <div style={{display:"flex", flexDirection:"column", marginTop:"2rem", gap:"1rem"}}>
-                <h3>Total: R$ {total}</h3>
-                <div style={{display:"flex", flexDirection:"column", gap:".5rem", paddingBottom:"1rem", borderBottom:"2px solid var(--border-color)"}}>
-                    <Subtitle>Cartão:</Subtitle>
-                    <ul style={{listStyle:"none", display:'flex', flexWrap:'wrap', gap:".5rem"}}>
+
+            <div className="summary-block">
+                <h3>Total: R${total}</h3>
+
+                <div className="card-selector">
+                    <Font.Subtitle>Cartão:</Font.Subtitle>
+                    <ul>
                         {renderCards()}
                     </ul>
                 </div>
-                <div style={{display:"flex", gap:".25rem"}}>
-                    
-                    <Button.Cancel
-                        style={{flexShrink:2}}
-                    >
+
+                <div className="action-buttons">
+                    <Button.Cancel>
                         <i className='fa-solid fa-xmark'></i>
-                        Cancelar
+                        CANCELAR
                     </Button.Cancel>
 
-                    <Button.Submit
-                        onClick={save}
-                        style={{flexShirnk:1}}
-                    >
+                    <Button.Submit onClick={save}>
                         <i className='fa-solid fa-floppy-disk'></i>
-                        Salvar
+                        SALVAR
                     </Button.Submit>
                 </div>
             </div>
         </div>
-    )
+    );
 }

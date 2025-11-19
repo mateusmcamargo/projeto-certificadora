@@ -1,6 +1,15 @@
 :root {
+    --color-close: #ef4444;
+    --color-light-blue: #8fb7ef;
+
     --button-padding: 1rem 2rem;
     --button-border-radius: 2rem;
     --button-font-size: 1.4rem;
     --button-font-weight: 700;
+
+    --color-purchase-fg: #333;
+    --color-purchase-bg: #ffffff;
+    --color-purchase-border: #e1e1e1;
+    --purchase-border: 2px solid var(--color-purchase-border);
+    --purchase-border-radius: .4rem;
 }
