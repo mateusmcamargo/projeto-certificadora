@@ -16,6 +16,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .block {
     width: 90vw;
     padding: 2rem;

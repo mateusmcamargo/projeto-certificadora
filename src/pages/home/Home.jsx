@@ -39,7 +39,7 @@ const Home = () => {
     const totalDeposits   = profile.deposits.reduce((acc,c) => +acc+(+c.value), 0)
 
     return (
-        <div style={{marginBlock:"2rem 10rem"}}>
+        <main>
             <section className="purchase-manager-with-webscraping">
                 <div style={{display:'flex', flexDirection:"column", alignItems:'center', flexWrap:"wrap", gap:'1rem'}}>
                     <Font.Title>Aplicar filtro de cartões</Font.Title>
@@ -56,16 +56,15 @@ const Home = () => {
                             <div style={{marginBottom:"2rem"}}></div>
                             <PurchasesList/>                    
                         </div>
-                </div>                    
-                    <div style={{display:'flex', alignItems:"flex-start", flexWrap:"wrap", justifyContent:'center'}}>
-                        <PurchasesManagerDraftLogic>
-                            <Invoice/>
-                            <NewPurchase/>
-                            <PurchasesManagerDialog/>
-                        </PurchasesManagerDraftLogic>
-                    </div>
+                </div>
             </section>
-        </div>  
+
+            <PurchasesManagerDraftLogic>
+                <Invoice/>
+                <NewPurchase/>
+                <PurchasesManagerDialog/>
+            </PurchasesManagerDraftLogic>
+        </main>  
     )
 }
 
