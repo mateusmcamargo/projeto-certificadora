@@ -1,9 +1,6 @@
 import { useState } from 'react'
-import { Button } from '../ui/Ui';
+import { Button, Input, Label } from '../ui/Ui';
 import Font from '../font/Font';
-import Card from '../ui/Card'
-import Label from '../ui/Label'
-import Input from '../ui/Input'
 import { Loading } from '../Components'
 import { usePurchasesDraftContext } from '../../hooks/PurchasesDraftContext'
 import './invoice.scss';

@@ -1,7 +1,4 @@
-import React, { useMemo } from 'react'
-import { Button } from './Ui';
-import Input from './Input'
-import Label from './Label'
+import { Button, Label, Input } from './Ui';
 import { usePurchasesDraftContext } from '../../hooks/PurchasesDraftContext'
 import Font from '../font/Font'
 

@@ -5,8 +5,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { saveUser } from "../useCases/userCRUD";
 import Font from "../components/font/Font";
 import { nanoid } from "nanoid";
-import Label from "../components/ui/Label";
-import Input from "../components/ui/Input";
+import { Label, Input } from "../components/ui/Ui";
 
 const Login = () => {
     const navigate = useNavigate();
