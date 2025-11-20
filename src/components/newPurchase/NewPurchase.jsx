@@ -61,8 +61,6 @@ export function NewPurchase() {
         <div className="block new-purchase">
             <Font.Title>Adicionar Compras</Font.Title>
 
-            <div className="title-spacing"></div>
-
             <div className="add-row">
                 <Button.Add onClick={addPurchase}>
                     <i className='fa-solid fa-plus'></i>

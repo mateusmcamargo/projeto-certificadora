@@ -1,24 +1,12 @@
 .new-purchase h3 {
   font-size: 2rem;
 }
-.new-purchase .title-spacing {
-  margin-bottom: 1rem;
-}
-.new-purchase .add-row {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 0.5rem;
-}
-.new-purchase .add-row .add-btn {
-  width: -moz-max-content;
-  width: max-content;
-}
 .new-purchase .purchases-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  height: 27rem;
+  max-height: 32rem;
   overflow-y: auto;
 }
 .new-purchase .summary-block {
