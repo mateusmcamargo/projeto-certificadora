@@ -1,8 +1,9 @@
-export { CardFilterSection }            from './CardFilterSection';
-export { ExpensesCard }                 from './ExpensesCard';
-export { Loading }                      from './Loading';
-export { Invoice }                      from './invoice/Invoice';
-export { Purchase }                     from './purchase/Purchase';
-export { PurchasesList }                from './PurchasesList';
-export { PurchasesManagerDraftLogic }   from './PurchasesManagerDraftLogic';
-export { NewPurchase }                  from './newPurchase/NewPurchase';
+export { CardFilterSection }          from './CardFilterSection';
+export { ExpensesCard }               from './expensesCard/ExpensesCard';
+export { Loading }                    from './Loading';
+export { Invoice }                    from './invoice/Invoice';
+export { Purchase }                   from './purchase/Purchase';
+export { PurchasesList }              from './PurchasesList';
+export { PurchasesFilter }            from './purchasesFilter/PurchasesFilter';
+export { PurchasesManagerDraftLogic } from './PurchasesManagerDraftLogic';
+export { NewPurchase }                from './newPurchase/NewPurchase';

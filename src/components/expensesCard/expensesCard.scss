@@ -1,0 +1,40 @@
+.expenses-card {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: space-between;
+
+    width: 95vw;
+    height: 59.85vw;
+    padding: 4rem 3rem;
+    border-radius: 1.2rem;
+    background: linear-gradient(to right, #ffffff, #eeeeee);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    //font-family: Arial, sans-serif;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title {
+            color: #6b7280;
+            font-size: 2.4rem;
+        }
+
+        .icon {
+            color: #ff9800;
+            font-size: 3.6rem;
+        }
+    }
+
+    .value {
+        color: #ff6f00;
+        font-size: 3.8rem;
+    }
+
+    .description {
+        color: #9ca3af;
+        font-size: 2rem;
+    }
+}

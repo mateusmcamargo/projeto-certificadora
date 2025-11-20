@@ -7,7 +7,7 @@ export function PurchasesList() {
     const {purchasesList} = usePurchasesContext();
     return (
         <div>
-            <ul style={{width:'300px', maxHeight:'300px', overflowY:'auto', padding:'0', margin:'0', listStyle:'none'}}>
+            <ul className='purchases-list'>
                 {
                     purchasesList && purchasesList.map((purchase) => (
                         <li key={nanoid()}>
