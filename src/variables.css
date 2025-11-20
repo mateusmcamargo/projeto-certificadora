@@ -3,6 +3,8 @@
     --color-blue: #367ee2;
     --color-blue-light: #8fb7ef;
     --color-blue-lighter:rgb(216, 227, 245);
+    --color-gray-light: #e1e1e1;
+    --color-gray-lighter: #f1f1f1;
 
     --button-padding: 1rem 2rem;
     --button-border-radius: 2rem;

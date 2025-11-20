@@ -2,9 +2,7 @@ div.invoice .header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0rem;
   text-align: center;
-  margin-bottom: 1.5rem;
 }
 div.invoice .image-wrapper {
   display: flex;
@@ -30,8 +28,6 @@ div.invoice .image-wrapper i {
   background-color: var(--color-blue-lighter);
 }
 div.invoice .text {
+  width: 100%;
   padding: 1rem 0;
-}
-div.invoice .input-block {
-  margin-bottom: 1.5rem;
 }/*# sourceMappingURL=invoice.css.map */

@@ -32,19 +32,19 @@ export function Invoice() {
 
 				<div className="text">
 					<Font.Title>Adicionar Nota Fiscal</Font.Title>
-					<Font.Subtitle style={{textAlign: 'left'}}>Cole o link da nota fiscal,<br/>nós cuidamos do resto!</Font.Subtitle>
+					<Font.Subtitle>Cole o link da sua nota fiscal que nós cuidamos do resto!</Font.Subtitle>
 				</div>
 			</div>
 
 			<div className='input-block'>
 				<Label>
 					Link da nota fiscal:
-					<Input 
-						value={value} 
-						onChange={handleChange} 
-						placeholder='https://www.link-de-exemplo.com'
-					/>
 				</Label>
+				<Input 
+					value={value}
+					onChange={handleChange} 
+					placeholder='https://www.link-de-exemplo.com'
+				/>
 			</div>
 
 			<Button.Submit onClick={onSubmit} disabled={!Boolean(value)}>

@@ -1,1 +1,6 @@
-/*# sourceMappingURL=label.css.map */
+label {
+  font-size: 1.4rem;
+  margin-left: 0.9rem;
+  line-height: 1;
+  font-weight: 500;
+}/*# sourceMappingURL=label.css.map */
