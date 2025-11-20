@@ -3,7 +3,7 @@ section.navbar {
   align-items: center;
   justify-content: center;
   height: 7rem;
-  position: fixed;
+  position: sticky;
   bottom: 0;
   width: 100vw;
   background-color: white;
