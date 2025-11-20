@@ -5,6 +5,7 @@
     --color-blue-lighter:rgb(216, 227, 245);
     --color-gray-light: #e1e1e1;
     --color-gray-lighter: #f1f1f1;
+    --background: linear-gradient(135deg, #F8F8F8, #ededed);
 
     --button-padding: 1rem 2rem;
     --button-border-radius: 2rem;
