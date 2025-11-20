@@ -1,25 +1,33 @@
 article.purchase {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1fr 0.5fr;
     gap: 2rem;
-
+    
     padding: 1rem 2rem;
     width: 100%;
     background-color: var(--color-purchase-bg);
     border: var(--purchase-border);
     border-radius: var(--purchase-border-radius);
 
-    // Left column: title and category
-    .info {
+    div {
         display: flex;
-        flex-direction: column; 
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-end;
         justify-content: center;
+    }
+
+    // left column: title and category
+    .info {
+        align-items: flex-start;
+        justify-content: flex-end;
+        gap: .5rem;
 
         h4 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
             font-size: 1.6rem;
-            color: #222;
+            color: #303030;
         }
 
         p.category {
@@ -32,23 +40,29 @@ article.purchase {
         }
     }
 
-    // Right column: price section
+    // middle column: price section
     .price {
         text-align: right;
 
         p {
+            font-size: 1.4rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+            color: #303030;
+        }
+
+        p.qtd {
+            font-size: 1.2rem;
+            color: #505050;
         }
     }
 
-    .qtd {
-        font-size: 0.875rem;
-        color: grey;
-    }
-
-    // Checkbox + close button row
+    // right column: checkbox and close button
     .actions {
-        display: flex;
+        flex-direction: row;
         align-items: center;
+        justify-content: flex-end;
         gap: 1rem;
 
         input, i {

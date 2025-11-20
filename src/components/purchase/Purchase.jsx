@@ -18,8 +18,8 @@ const date = data?.toDate();
             </div>
 
             <div className="purchase price">
-                <p>R$ {price.toFixed(2)}</p>
-                <p className="purchase qtd">Qtd: {qtd}</p>
+                <p>R${price.toFixed(2)}</p>
+                <p className="qtd">Qtd: {qtd}</p>
             </div>
 
             <div className="purchase actions">
