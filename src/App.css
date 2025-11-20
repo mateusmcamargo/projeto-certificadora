@@ -8,12 +8,18 @@
     line-height: 1.5;
     font-weight: 400;
     font-synthesis: none;
+    text-decoration: none;
     
+    outline: none;
     list-style: none;
     scrollbar-width: thin;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+div.app {
+    background: var(--background);
 }
 
 main {

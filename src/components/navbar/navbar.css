@@ -2,13 +2,15 @@ section.navbar {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 7rem;
+  width: 95vw;
   position: sticky;
-  bottom: 0;
-  width: 100vw;
-  background-color: white;
+  bottom: 2.5vw;
   z-index: 1;
-  font-weight: 500;
+  border-radius: 1rem;
+  padding: 1.5rem 0;
+  margin: 0 auto;
+  background-color: white;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15));
 }
 section.navbar nav {
   min-width: 35rem;
@@ -19,12 +21,12 @@ section.navbar nav {
 }
 section.navbar nav button.add {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.5rem;
   width: 7.2rem;
   height: 7.2rem;
-  border-radius: 50%;
+  border-radius: 2rem;
   border: 4px solid white;
-  background-color: gray;
+  background-color: #333;
 }
 section.navbar nav button.add svg {
   font-size: 4rem;
@@ -40,10 +42,10 @@ section.navbar nav div.pages a.page {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 0.4rem;
 }
 section.navbar nav div.pages a.page svg, section.navbar nav div.pages a.page span {
-  color: gray;
+  color: #707070;
 }
 section.navbar nav div.pages a.page svg.active, section.navbar nav div.pages a.page span.active {
   color: black;
