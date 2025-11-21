@@ -1,0 +1,26 @@
+#topNavbar{
+    position:sticky;
+    left:1rem;
+    right:1rem;
+    top:1rem;
+    padding:1rem;
+    border-radius:1rem;
+    background-color: white;
+    margin-bottom:1rem;
+    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15));
+    z-index: 1;
+}
+
+#topNavbar .button{
+    width:fit-content;
+}
+
+#topNavbar .right{
+    display:flex;
+    gap:1rem;
+    justify-content: space-around;
+}
+
+#topNavbar .icon{
+    font-size: 2rem;
+}

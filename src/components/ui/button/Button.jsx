@@ -40,12 +40,19 @@ const Option = ({children, selected, ...props}) => {
     )
 }
 
+const Menu = ({children, ...props}) => {
+    return (
+        <button className='button menu' {...props}>{children}</button>
+    )
+}
+
 const Button = {
     Default,
     Submit,
     Add,
     Option,
-    Cancel
+    Cancel,
+    Menu
 }
 
 export default Button
