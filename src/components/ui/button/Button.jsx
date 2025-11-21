@@ -34,7 +34,7 @@ const Add = ({children, selected, ...props}) => {
 
 const Option = ({children, selected, ...props}) => {
     return (
-        <button className='button option' {...props}>
+        <button className={`button option ${selected?'selected':'unselected'}`} {...props}>
             {children}
         </button>
     )

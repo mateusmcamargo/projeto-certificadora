@@ -1,4 +1,3 @@
-export { CardFilterSection }          from './CardFilterSection';
 export { ExpensesCard }               from './expensesCard/ExpensesCard';
 export { Loading }                    from './Loading';
 export { Invoice }                    from './invoice/Invoice';
