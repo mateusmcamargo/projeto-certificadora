@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { PurchasesDraftProvider } from '../hooks/PurchasesDraftContext';
 import { nanoid } from 'nanoid';
-import { compras } from '../data/compras';
 import { addPurchases } from '../useCases/purchaseCRUD';
 import { useAuth } from '../hooks/AuthContext';
 
-export function PurchasesManagerDraftLogic({children}) {
-    const [purchasesList, setPurchasesList] = useState(compras);
+export const PurchasesManagerDraftLogic = ({children}) => {
+    const [purchasesList, setPurchasesList] = useState([]);
     const [selectedPurchases, setSelectedPurchases] = useState([]);
     const [changesForm, setChangesForm] = useState({title:"", category:"", qtd:0, price:0})
     // devo corrigir a inserção de dados
@@ -34,7 +33,6 @@ export function PurchasesManagerDraftLogic({children}) {
     const [selectedCardId, setSelectedCardId] = useState("");
 
     const handleCardSelection = (cardId) => {
-      console.log(cardId);
       setSelectedCardId(cardId);
     }
 

@@ -23,9 +23,12 @@ import { testUserCRUD } from './useCases/tests/user';
 import { testPurchaseCrud } from './useCases/tests/purchase';
 import { AuthProvider } from './hooks/AuthContext';
 import ProtectedRoute from './pages/ProtectedRoute';
+import Register from './pages/Register';
 import Login from './pages/Login';
 import { PurchasesProvider } from './hooks/PurchasesContext';
 import { ProfileProvider } from './hooks/ProfileContext';
+import TopNavbar from './components/topNavbar/TopNavbar';
+import Profile from './pages/profile/Profile';
 
 function App() {
 
@@ -57,23 +60,19 @@ function App() {
             <ProfileProvider>
                 <PurchasesProvider>
                     <div className='app'>
+                        <TopNavbar/>
                         <Routes>
                             <Route path='/extract' element={
                                 <ProtectedRoute>
                                     <Extract/>
                                 </ProtectedRoute>
                             }/>
-                            
-                            <Route path='/' element={
-                                <ProtectedRoute>
-                                    <Home/>
-                                </ProtectedRoute>
-                            }/>
-
+                            <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
+                            <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
                             <Route path='/login' element={<Login/>}/>
+                            <Route path='/register' element={<Register/>}/>
                         </Routes>
-
-                        {location.pathname != '/login' && <Navbar/>}
+                        {location.pathname === '/' && <Navbar/>}
                     </div>
                 </PurchasesProvider>
             </ProfileProvider>

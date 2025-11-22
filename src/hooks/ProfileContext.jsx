@@ -37,7 +37,6 @@ export const ProfileProvider = ({children}) => {
             }
         })
     }, [authData.user])
-
     return (
         <ProfileContext.Provider value={{profile, setProfile}}>
             {children}

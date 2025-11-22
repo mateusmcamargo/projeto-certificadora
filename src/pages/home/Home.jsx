@@ -48,7 +48,7 @@ const Home = () => {
                 value={totalDeposits}
             />
 
-            <PurchasesFilter/>
+            {profile && <PurchasesFilter {...{profile}}/>}
 
             <PurchasesManagerDraftLogic>
                 <Invoice/>

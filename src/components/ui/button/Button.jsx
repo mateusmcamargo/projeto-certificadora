@@ -34,9 +34,15 @@ const Add = ({children, selected, ...props}) => {
 
 const Option = ({children, selected, ...props}) => {
     return (
-        <button className='button option' {...props}>
+        <button className={`button option ${selected?'selected':'unselected'}`} {...props}>
             {children}
         </button>
+    )
+}
+
+const Menu = ({children, ...props}) => {
+    return (
+        <button className='button menu' {...props}>{children}</button>
     )
 }
 
@@ -45,7 +51,8 @@ const Button = {
     Submit,
     Add,
     Option,
-    Cancel
+    Cancel,
+    Menu
 }
 
 export default Button

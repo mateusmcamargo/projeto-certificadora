@@ -42,4 +42,9 @@
 .button.option.unselected {
   color: var(--unselected-fg);
   background-color: var(--unselected-bg);
-}/*# sourceMappingURL=button.css.map */
+}
+.button.menu{
+  color: var(--menu-fg);
+  background-color: var(--menu-bg);
+}
+/*# sourceMappingURL=button.css.map */

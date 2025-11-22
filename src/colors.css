@@ -20,6 +20,9 @@
     --cancel-fg: white;
     --cancel-bg: #ef4444;
 
+    --menu-fg: white;
+    --menu-bg: #333;
+
     --foreground: 210 15% 20%;
     --verylightgrey:hsl(240 15% 98%);
     --border-color:hsl(215 20% 88%);
