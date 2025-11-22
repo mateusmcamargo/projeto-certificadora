@@ -1,6 +1,6 @@
 // react and npm
 import { useEffect, useState } from 'react';
-import { Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Router, Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
 
 // components
 import { Navbar } from './components/navbar/Navbar'
@@ -29,8 +29,11 @@ import { ProfileProvider } from './hooks/ProfileContext';
 
 function App() {
 
+    const location = useLocation();
+
     const [loading, setLoading] = useState(false);
-    const [error, setError]   = useState(null);
+    const [error, setError]   = useState(null);~
+
     useEffect(() => {
         const runTests = async () => {
             try {
@@ -50,26 +53,31 @@ function App() {
     }, []);
 
     return (
-        <BrowserRouter>
-            <AuthProvider>
-                <ProfileProvider>
-                    <PurchasesProvider>
-                        <div className='app'>
-                            <Routes>
-                                <Route path='/extract' element={
-                                    <ProtectedRoute>
-                                        <Extract/>
-                                    </ProtectedRoute>
-                                }/>
-                                <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
-                                <Route path='/login' element={<Login/>}/>
-                            </Routes>
-                            <Navbar/>
-                        </div>
-                    </PurchasesProvider>
-                </ProfileProvider>
-            </AuthProvider>
-        </BrowserRouter>
+        <AuthProvider>
+            <ProfileProvider>
+                <PurchasesProvider>
+                    <div className='app'>
+                        <Routes>
+                            <Route path='/extract' element={
+                                <ProtectedRoute>
+                                    <Extract/>
+                                </ProtectedRoute>
+                            }/>
+                            
+                            <Route path='/' element={
+                                <ProtectedRoute>
+                                    <Home/>
+                                </ProtectedRoute>
+                            }/>
+
+                            <Route path='/login' element={<Login/>}/>
+                        </Routes>
+
+                        {location.pathname != '/login' && <Navbar/>}
+                    </div>
+                </PurchasesProvider>
+            </ProfileProvider>
+        </AuthProvider>
     )
 }
 
