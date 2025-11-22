@@ -15,20 +15,15 @@ import './app.css';
 import './colors.css';
 import './variables.css';
 
-import Home from './pages/home/Home';
-import { Extract } from './pages/Extract';
+import { Home, Extract, ProtectedRoute, Register, Login, Profile } from './pages/Pages';
 import { testInvoiceCRUD } from './useCases/tests/invoice';
 import { testCardCRUD } from './useCases/tests/card';
 import { testUserCRUD } from './useCases/tests/user';
 import { testPurchaseCrud } from './useCases/tests/purchase';
 import { AuthProvider } from './hooks/AuthContext';
-import ProtectedRoute from './pages/ProtectedRoute';
-import Register from './pages/Register';
-import Login from './pages/Login';
 import { PurchasesProvider } from './hooks/PurchasesContext';
 import { ProfileProvider } from './hooks/ProfileContext';
 import TopNavbar from './components/topNavbar/TopNavbar';
-import Profile from './pages/profile/Profile';
 
 function App() {
 

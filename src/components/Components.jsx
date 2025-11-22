@@ -6,3 +6,4 @@ export { PurchasesList }              from './PurchasesList';
 export { PurchasesFilter }            from './purchasesFilter/PurchasesFilter';
 export { PurchasesManagerDraftLogic } from './PurchasesManagerDraftLogic';
 export { NewPurchase }                from './newPurchase/NewPurchase';
+export { Logo }                       from './logo/Logo';

@@ -19,6 +19,7 @@
 }
 
 div.app {
+    min-height: 100vh;
     background: var(--background);
 }
 
@@ -28,6 +29,8 @@ main {
     align-items: center;
     justify-content: center;
     gap: 2rem;
+
+    min-height: 100vh;
 }
 
 .input-block {

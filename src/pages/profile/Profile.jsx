@@ -8,7 +8,7 @@ import { nanoid } from 'nanoid'
 import { updateUser } from '../../useCases/userCRUD'
 import { useAuth } from '../../hooks/AuthContext'
 
-const Profile = () => {    
+export function Profile() {    
     const {authData} = useAuth();
     console.log("dasd",useProfileContext())
     const profileReducer = (state, action) => {
@@ -88,7 +88,5 @@ const Profile = () => {
                 </div>
             </form>
         </section>
-    )
+    );
 }
-
-export default Profile

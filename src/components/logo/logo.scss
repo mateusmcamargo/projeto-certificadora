@@ -1,0 +1,27 @@
+div.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 96px;
+    height: 96px;
+    border-radius: 2rem;
+    background-color: var(--color-blue-lighter);
+
+    i {
+        
+        &:nth-of-type(1) {
+            font-size: 56px;
+            position: relative;
+            left: 18px;
+            color: var(--color-blue);
+        }
+        &:nth-of-type(2) {
+            font-size: 36px;
+            position: relative;
+            bottom: 36px;
+            left: 10px;
+            color: var(--color-blue-dark);
+        }
+    }
+}

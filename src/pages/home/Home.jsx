@@ -15,7 +15,7 @@ import { useProfileContext } from '../../hooks/ProfileContext'
 import { getPurchases } from '../../useCases/purchaseCRUD'
 import { calcTotalExpenses } from '../../utils/calcTotalExpenses'
 
-const Home = () => {
+export function Home() {
 
     const {purchasesList, setPurchasesList} = usePurchasesContext();
     const [cardFilter, setCardFilter] = useState('');
@@ -56,7 +56,5 @@ const Home = () => {
                 <PurchasesManagerDialog/>
             </PurchasesManagerDraftLogic>
         </main>  
-    )
+    );
 }
-
-export default Home
