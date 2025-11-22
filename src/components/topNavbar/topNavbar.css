@@ -1,26 +1,45 @@
-#topNavbar{
-    position:sticky;
-    left:1rem;
-    right:1rem;
-    top:1rem;
-    padding:1rem;
-    border-radius:1rem;
-    background-color: white;
-    margin-bottom:1rem;
-    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15));
-    z-index: 1;
+section.topNavbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95vw;
+  position: sticky;
+  top: 2.5vw;
+  z-index: 1;
+  border-radius: 1rem;
+  padding: 1.5rem 0;
+  margin: 0 auto 2rem auto;
+  background-color: white;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.15));
 }
-
-#topNavbar .button{
-    width:fit-content;
+section.topNavbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
-
-#topNavbar .right{
-    display:flex;
-    gap:1rem;
-    justify-content: space-around;
+section.topNavbar nav div.pages {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
 }
-
-#topNavbar .icon{
-    font-size: 2rem;
+section.topNavbar nav div.pages a.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
 }
+section.topNavbar nav div.pages a.page i, section.topNavbar nav div.pages a.page span {
+  color: #707070;
+}
+section.topNavbar nav div.pages a.page i.active, section.topNavbar nav div.pages a.page span.active {
+  color: black;
+}
+section.topNavbar nav div.pages a.page i {
+  font-size: 2.4rem;
+}
+section.topNavbar nav div.pages a.page span {
+  font-size: 1.2rem;
+}/*# sourceMappingURL=topNavbar.css.map */

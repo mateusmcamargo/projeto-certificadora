@@ -13,14 +13,28 @@ const TopNavbar = () => {
     const { logout } = useAuth();
 
     return (
-        <header id="topNavbar">
-            <div className="right">
-                <NavLink to="/"><Button.Menu><GoHomeFill className="icon"/></Button.Menu></NavLink>
-                <NavLink to="/profile"><Button.Menu><IoPerson className="icon"/></Button.Menu></NavLink>
-                <NavLink to="/login"><Button.Menu>Login</Button.Menu></NavLink>
-                <Button.Menu onClick={logout}><FiLogOut className="icon"/></Button.Menu>
-            </div>
-        </header>
+        <section className="topNavbar">
+            <nav>
+                <div className='pages'>
+                    <NavLink to="/" className='page'>
+                        <i className="fa-solid fa-house"></i>
+                        <span>Início</span>
+                    </NavLink>
+                    <NavLink to="/profile" className='page'>
+                            <i className="fa-solid fa-user"></i>
+                            <span>Perfil</span>
+                    </NavLink>
+                    <NavLink to="/login" className='page'>
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <span>Entrar</span>
+                    </NavLink>
+                    <NavLink onClick={logout} className='page'>
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Sair</span>
+                    </NavLink>
+                </div>
+            </nav>
+        </section>
     )
 }
 
