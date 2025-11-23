@@ -8,17 +8,83 @@ export const PurchasesManagerDraftLogic = ({children}) => {
     const [purchasesList, setPurchasesList] = useState([]);
     const [selectedPurchases, setSelectedPurchases] = useState([]);
     const [changesForm, setChangesForm] = useState({title:"", category:"", qtd:0, price:0})
-    // devo corrigir a inserção de dados
-    const addPurchase = () => {setPurchasesList((prevPurchasesList) => [
-      { id:nanoid(), title: "Carne moída 500 g", category: "carne", price: 10, qtd:1 }, ...prevPurchasesList]);
+    const [isLoadingApi, setIsLoadingApi] = useState(false);
+    const [apiError, setApiError] = useState(null);
+
+    const addPurchase = () => {
+      setPurchasesList((prevPurchasesList) => [
+        { id:nanoid(), title: "Carne moída 500 g", category: "carne", price: 10, qtd:1 }, 
+        ...prevPurchasesList
+      ]);
     }
-    const addMultiplePurchases = ()=>{}
+
+    // Função para consumir a API e adicionar múltiplas compras
+    const addMultiplePurchases = async (qrcodeUrl) => {
+      setIsLoadingApi(true);
+      setApiError(null);
+
+      try {
+        // Chama a API passando a URL do QR Code
+        const response = await fetch(`http://localhost:5000/parse_nfce_url?url=${encodeURIComponent(qrcodeUrl)}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`Erro na API: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        if (data.status === 'success' && data.nfce_data && data.nfce_data.itens) {
+          // Mapeia os itens da nota fiscal para o formato do seu app
+          const newPurchases = data.nfce_data.itens.map(item => ({
+            id: nanoid(),
+            title: item.descricao || 'Sem descrição',
+            category: '', // Você pode adicionar lógica para categorizar automaticamente
+            price: item.valor_unit || 0,
+            qtd: item.quantidade || 1,
+            // Dados extras da nota (opcional)
+            codigoNF: item.codigo,
+            unidade: item.unidade,
+            valorTotal: item.valor_total
+          }));
+
+          // Adiciona as compras à lista
+          setPurchasesList((prevPurchasesList) => [...newPurchases, ...prevPurchasesList]);
+
+          setIsLoadingApi(false);
+          return {
+            success: true,
+            itemsAdded: newPurchases.length,
+            nfceData: data.nfce_data
+          };
+        } else {
+          throw new Error('Nenhum item encontrado na nota fiscal');
+        }
+
+      } catch (error) {
+        console.error('Erro ao buscar dados da NFC-e:', error);
+        setApiError(error.message);
+        setIsLoadingApi(false);
+        return {
+          success: false,
+          error: error.message
+        };
+      }
+    }
+
     const changePurchase = ()=>{}
+    
     const deletePurchase = ()=>{}
+    
     const deletePurchases = ()=>{
       setPurchasesList(purchasesList => purchasesList.filter(el => !selectedPurchases.some(({id})=> el.id==id)))
       setSelectedPurchases([])
     }
+    
     const onChangesConfirm = () => {
       setPurchasesList (puchasesList => {
         return puchasesList.map((el) => {
@@ -28,6 +94,7 @@ export const PurchasesManagerDraftLogic = ({children}) => {
       });
       setSelectedPurchases([]);
     }
+    
     const onChangesCancel = () => { setSelectedPurchases([]); }
 
     const [selectedCardId, setSelectedCardId] = useState("");
@@ -36,12 +103,10 @@ export const PurchasesManagerDraftLogic = ({children}) => {
       setSelectedCardId(cardId);
     }
 
-    // authorize é somente para permitir agrupamento ou não, não sendo uma propriedade da entidade no banco.
     const [group, setGroup] = useState({id:nanoid(), authorize:true, idUser:"usuario1", name:"", createdAt:{dia:16,mes:9,ano:2025}});
     const {authData} = useAuth();
 
     const save = ()=>{
-      // falta implementar cartaoId dinâmico (API)      
       const purchases = purchasesList.map(el => ({...el, userId:authData.user.email, cartaoId:selectedCardId}));
       addPurchases(purchases)
       .then((ids) => {console.log("Compras salvas com IDs: ", ids)})
@@ -67,7 +132,9 @@ export const PurchasesManagerDraftLogic = ({children}) => {
       handleCardSelection,
       group,
       setGroup,
-      save
+      save,
+      isLoadingApi,
+      apiError
     }}>
       {children}
     </PurchasesDraftProvider>
