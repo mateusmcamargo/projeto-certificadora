@@ -9,14 +9,17 @@ const truncateString = (str, num) => {
     return str.slice(0, num) + '...';
 };
 
-export function Purchase({ id, qtd, selected, title, category, price, onSelect, onClose, data, actions}) {
+export function Purchase({ id, qtd, selected, name, category, price, onSelect, onClose, data, actions}) {
 const date = data?.toDate();
+
+    const truncateName     = truncateString(name, 20);
+    const truncateCategory = truncateString(category, 10);
 
     return (
         <article className="purchase">
             <div className="purchase info">
-                <h4>{truncateString(title, 20)}</h4>
-                <Font.Text className='category'>{category}</Font.Text>
+                <h4>{truncateName}</h4>
+                <Font.Text className='category'>{truncateCategory}</Font.Text>
                 {date && (
                     <p>
                         {date.getDate()}/{date.getMonth()}/{date.getFullYear()}

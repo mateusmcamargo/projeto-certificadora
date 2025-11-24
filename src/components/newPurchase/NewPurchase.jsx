@@ -229,7 +229,7 @@ export function NewPurchase({type}) {
                     selected={c.id === selectedCardId} 
                     onClick={() => handleCardSelection(c.id)}
                 >
-                    {c.title}
+                    {c.name}
                 </Button.Option>
             </li>
         ));
@@ -265,11 +265,6 @@ export function NewPurchase({type}) {
                 </div>
 
                 <div className="action-buttons">
-                    <Button.Cancel>
-                        <i className='fa-solid fa-xmark'></i>
-                        CANCELAR
-                    </Button.Cancel>
-
                     <Button.Submit onClick={save}>
                         <i className='fa-solid fa-floppy-disk'></i>
                         SALVAR
