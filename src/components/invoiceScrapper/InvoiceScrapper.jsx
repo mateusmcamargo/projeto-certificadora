@@ -3,9 +3,9 @@ import { Button, Input, Label } from '../ui/Ui';
 import Font from '../font/Font';
 import { Loading } from '../Components'
 import { usePurchasesDraftContext } from '../../hooks/PurchasesDraftContext'
-import './invoice.scss';
+import './InvoiceScrapper.css';
 
-export function Invoice() {
+export function InvoiceScrapper() {
 
 	const [value, setValue] = useState('');
 	const [isLoading, setIsLoading] = useState(false);

@@ -4,11 +4,11 @@
     align-items: space-between;
     justify-content: space-between;
 
-    width: 95vw;
-    height: 59.85vw;
+    width: 100%;
+    aspect-ratio: var(--card-aspect-ratio);
     padding: 4rem 3rem;
     border-radius: 1.2rem;
-    background: linear-gradient(to right, #ffffff, #eeeeee);
+    background: linear-gradient(to right, #eeeeee, #e2e2e2);
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
     //font-family: Arial, sans-serif;
 
@@ -19,22 +19,35 @@
 
         .title {
             color: #6b7280;
-            font-size: 2.4rem;
+            font-size: 2.2rem;
         }
 
         .icon {
-            color: #ff9800;
-            font-size: 3.6rem;
+           color: var(--color-red);
+            font-size: 3.2rem;
         }
     }
 
     .value {
-        color: #ff6f00;
-        font-size: 3.8rem;
+        color: var(--color-red);
+        font-size: 3.2rem;
     }
 
     .description {
-        color: #9ca3af;
-        font-size: 2rem;
+        color: #6b7280;
+        font-size: 1.8rem;
+    }
+
+    &.deposit {
+        .header {
+
+            .icon {
+                color: var(--color-green-dark);
+            }
+        }
+
+        .value {
+            color: var(--color-green-dark);
+        }
     }
 }

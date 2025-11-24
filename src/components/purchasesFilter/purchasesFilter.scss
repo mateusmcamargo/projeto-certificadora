@@ -1,8 +1,15 @@
-.purchases-filter {
+ul.filter-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
 
-    div {
-        width: 100%;
-    }
+    width: 100%;
+}
+
+.purchases-filter {
+    width: 100%;
 
     .header {
         display: flex;
@@ -20,6 +27,12 @@
         align-items: flex-start;
         justify-content: center;
 
+        div {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         .purchases-list {
             display: flex;
             flex-direction: column;
@@ -27,6 +40,10 @@
 
             max-height: 32rem;
             overflow-y: auto;
+            padding: 1rem;
+            border-radius: .4rem;
+            background: var(--background);
+            border: 2px solid var(--color-purchase-border);
         }
     }
 }

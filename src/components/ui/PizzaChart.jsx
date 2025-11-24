@@ -10,11 +10,9 @@ import {
 import { usePurchasesContext } from "../../hooks/PurchasesContext";
 
  const cardStyle = {
-    maxWidth: "350px",
-    margin: "20px",
     background: "#fff",
-    borderRadius: "12px",
-    boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+    borderRadius: "4px",
+    border: '2px solid #e1e1e1',
     padding: "16px",
     fontFamily: "sans-serif",
   };
@@ -24,12 +22,14 @@ import { usePurchasesContext } from "../../hooks/PurchasesContext";
     fontWeight: "600",
     color: "#1f2937",
     marginBottom: "4px",
+    textAlign: 'center'
   };
 
   const subtitleStyle = {
     fontSize: "14px",
     color: "#6b7280",
     marginBottom: "20px",
+    textAlign: 'center'
   };
 
   const COLORS = [

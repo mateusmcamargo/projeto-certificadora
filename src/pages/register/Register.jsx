@@ -5,23 +5,23 @@ import { nanoid } from "nanoid";
 import { Label, Input, Button } from "../../components/ui/Ui";
 import { useAuth } from "../../hooks/AuthContext";
 
+const initialCardState    = { id: 0, title: "" };
+const initialDepositState = { id: 0, value: 0 };
+
 export function Register() {
+
     const navigate = useNavigate();
     const {register} = useAuth();
+
     const [userData, setUserData] = useState({
         nome:"",
         email:"",
         cards:[],
         deposits:[]
     });
-    const [card, setCard] = useState({
-        id:0,
-        title:""
-    });
-    const [deposit, setDeposit] = useState({
-        id:0,
-        value:0
-    })
+    const [card, setCard] = useState({initialCardState});
+    const [deposit, setDeposit] = useState({initialDepositState});
+    const [InitialBalance, setInitialBalance] = useState(0);
 
     return (
         <main>
@@ -39,14 +39,28 @@ export function Register() {
                 <div className='input-block'>
                     <Label className='required'>Depósito Inicial</Label>
                     <Input
-                    type="number"
-                    value={deposit.value.toString()}
-                    onChange={(e) => setDeposit({...deposit,value:e.target.value.toString()})}
+                        type="number"
+                        value={deposit.value}
+                        onChange={(e) => setDeposit({
+                            ...deposit,
+                            value:e.target.value
+                        })}
                     />
                 </div>
                 <Button.Add
                     onClick={() => {
-                    setUserData({...userData, deposits:[...userData.deposits, {...deposit, id:nanoid()}]})}}
+                        const depositValue = Number(deposit.value);
+
+                        setUserData(prevUserData => ({
+                            ...prevUserData,
+                            deposits: [
+                                ...prevUserData.deposits,
+                                {...deposit, id: nanoid(), value: depositValue} 
+                            ]
+                        }));
+                        setInitialBalance(prevBalance => prevBalance + depositValue);
+                        setDeposit({ id: 0, value: 0 });
+                    }}
                 >
                     <i className='fa-solid fa-plus'></i>
                     ADICIONAR DEPÓSITO
@@ -55,12 +69,11 @@ export function Register() {
                 {
                     userData.deposits.length && 
                     <>
-                        <Font.Subtitle>Depósitos adicionados:</Font.Subtitle>
-                        <ul>
-                            {userData.deposits.map((deposit, index) => (
-                                <li key={index}>R$ {deposit.value}</li>
-                            ))}
-                        </ul>
+                        <Font.Title
+                            style={{
+                                textAlign: 'left'
+                            }}
+                        >{`Saldo inicial: R$${InitialBalance}`}</Font.Title>
                     </>
                 }
 
@@ -69,11 +82,17 @@ export function Register() {
                     <Input
                         type="text"
                         value={card.title}
-                        onChange={(e) => setCard({...card, title:e.target.value, id:nanoid()})}
+                        onChange={(e) => setCard({...card, title:e.target.value})}
                     />
                 </div>
                 <Button.Add
-                    onClick={() => setUserData({...userData, cards:[...userData.cards, card]})}
+                    onClick={() => {
+                        setUserData(prevUserData => ({
+                            ...prevUserData, 
+                            cards:[...prevUserData.cards, {...card, id:nanoid()}]
+                        }));
+                        setCard(initialCardState);
+                    }}
                 >
                     <i className='fa-solid fa-plus'></i>
                     ADICIONAR CARTÃO
@@ -82,7 +101,7 @@ export function Register() {
                 {
                     userData.cards.length && 
                     <>
-                        <Font.Subtitle>Cartões adicionados:</Font.Subtitle>
+                        <Font.Title>Cartões adicionados</Font.Title>
                         <ul>
                             {userData.cards.map((card, index) => (
                                 <li key={index}>{card.title}</li>

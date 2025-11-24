@@ -2,11 +2,11 @@ import './expensesCard.css';
 
 import { usePurchasesContext } from '../../hooks/PurchasesContext';
 
-export function ExpensesCard({title, value, icon, description}) {
+export function ExpensesCard({title, value, icon, description, type}) {
     const {purchasesList} = usePurchasesContext();
     if(!purchasesList) return <></>;
     return (
-        <div className='expenses-card'>
+        <div className={`expenses-card ${type}`}>
             <div className='header'>
                 <span className='title'>{title}</span>
                 <i className={`icon ${icon}`}></i>

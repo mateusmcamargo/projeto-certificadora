@@ -27,11 +27,21 @@ export function PurchasesFilter() {
         <div className="block purchases-filter">
             <div className="header">
                 <Font.Title>Aplicar filtro de cartões</Font.Title>
-                <ul style={{display:'flex', gap:'0.5rem', flexWrap:'wrap', listStyle:'none'}}>
-                    <li><Button.Option selected={cardSelected == ""} onClick={() => setCardSelected("")}>Nenhum</Button.Option></li>
-                    { profile.cards.map((c) => (<li key={c.id}>
-                        <Button.Option selected={cardSelected == c.id} onClick={() => setCardSelected(c.id)}>{c.title}</Button.Option>
-                    </li>)) }
+                <ul className='filter-list'>
+                    <li>
+                        <Button.Option
+                            selected={cardSelected == ""}
+                            onClick={() => setCardSelected("")}
+                        >
+                            Nenhum</Button.Option>
+                    </li>
+                    {profile.cards.map((c) => (
+                        <li key={c.id}>
+                            <Button.Option selected={cardSelected == c.id}
+                                onClick={() => setCardSelected(c.id)}>{c.title}
+                            </Button.Option>
+                        </li>
+                    ))}
                 </ul>
             </div>
 

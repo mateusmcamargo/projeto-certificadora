@@ -1,6 +1,6 @@
 // react and npm
 import { useEffect, useState } from 'react';
-import { Router, Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
 
 // components
 import { Navbar } from './components/navbar/Navbar'
@@ -15,7 +15,7 @@ import './app.css';
 import './colors.css';
 import './variables.css';
 
-import { Home, Extract, ProtectedRoute, Register, Login, Profile } from './pages/Pages';
+import { Invoice, ProtectedRoute, Register, Login, Profile, Cards, Wallet, Charts } from './pages/Pages';
 import { testInvoiceCRUD } from './useCases/tests/invoice';
 import { testCardCRUD } from './useCases/tests/card';
 import { testUserCRUD } from './useCases/tests/user';
@@ -24,13 +24,14 @@ import { AuthProvider } from './hooks/AuthContext';
 import { PurchasesProvider } from './hooks/PurchasesContext';
 import { ProfileProvider } from './hooks/ProfileContext';
 import TopNavbar from './components/topNavbar/TopNavbar';
+import { Create } from './pages/create/Create';
 
 function App() {
 
     const location = useLocation();
 
     const [loading, setLoading] = useState(false);
-    const [error, setError]   = useState(null);~
+    const [error, setError]   = useState(null);
 
     useEffect(() => {
         const runTests = async () => {
@@ -55,19 +56,53 @@ function App() {
             <ProfileProvider>
                 <PurchasesProvider>
                     <div className='app'>
-                        <TopNavbar/>
+
+                        {location.pathname !== '/login'   &&
+                        location.pathname  !== '/register' && 
+                        <TopNavbar/>}
+
                         <Routes>
-                            <Route path='/extract' element={
+                            <Route path='/' element={
                                 <ProtectedRoute>
-                                    <Extract/>
+                                    <Charts/>
                                 </ProtectedRoute>
                             }/>
-                            <Route path='/' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
-                            <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
+                            <Route path='/invoice' element={
+                                <ProtectedRoute>
+                                    <Invoice/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path='/cards' element={
+                                <ProtectedRoute>
+                                    <Cards/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path='/create' element={
+                                <ProtectedRoute>
+                                    <Create/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path='/profile' element={
+                                <ProtectedRoute>
+                                    <Profile/>
+                                </ProtectedRoute>
+                            }/>
+                            <Route path='/wallet' element={
+                                <ProtectedRoute>
+                                    <Wallet/>
+                                </ProtectedRoute>
+                            }/>
+
+
                             <Route path='/login' element={<Login/>}/>
                             <Route path='/register' element={<Register/>}/>
+
                         </Routes>
-                        {location.pathname === '/' && <Navbar/>}
+
+                        {location.pathname !== '/login'   &&
+                        location.pathname  !== '/register' && 
+                        <Navbar/>}
+
                     </div>
                 </PurchasesProvider>
             </ProfileProvider>

@@ -1,15 +1,18 @@
 :root {
-    --color-close: #ef4444;
-    --color-blue-dark: #094caa;
-    --color-blue: #367ee2;
-    --color-blue-light: #8fb7ef;
+    --color-red: #ef4444;
+    --color-close: var(--color-red);
+    --color-green-dark: #00b570;
+    --color-green: #00FF9C;
+    --color-blue-dark: #08459a;
+    --color-blue: #266ed4;
+    --color-blue-light: #669be6;
     --color-blue-lighter:rgb(216, 227, 245);
     --color-gray-light: #e1e1e1;
     --color-gray-lighter: #f1f1f1;
     --background: linear-gradient(135deg, #F8F8F8, #ededed);
 
     --button-padding: 1rem 2rem;
-    --button-border-radius: 2rem;
+    --button-border-radius: .4rem;
     --button-font-size: 1.4rem;
     --button-font-weight: 700;
 
@@ -18,4 +21,8 @@
     --color-purchase-border: #e1e1e1;
     --purchase-border: 2px solid var(--color-purchase-border);
     --purchase-border-radius: .4rem;
+
+    --card-width-ratio:  85.6;
+    --card-height-ratio: 54;
+    --card-aspect-ratio: calc(var(--card-width-ratio) / var(--card-height-ratio));
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import { usePurchasesContext } from '../hooks/PurchasesContext';
 import { nanoid } from 'nanoid';
 import { Purchase } from "./Components"

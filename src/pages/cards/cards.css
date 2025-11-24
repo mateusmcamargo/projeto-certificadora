@@ -1,0 +1,143 @@
+div.cards form div.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+div.cards form div.section ul.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+div.cards form div.section ul.cards-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+div.cards form div.section ul.cards-list li div.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 2rem 2rem 1rem 2rem;
+  border-radius: 1rem;
+  border: 2px solid var(--color-purchase-border);
+  background-color: white;
+}
+div.cards form div.section ul.cards-list li div.info div.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+div.cards form div.section ul.cards-list li div.info div.header p {
+  color: #303030;
+  font-size: 1.6rem;
+}
+div.cards form div.section ul.cards-list li div.info div.header div.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+div.cards form div.section ul.cards-list li div.info div.header div.actions i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+  height: 2.8rem;
+  border-radius: 0.4rem;
+}
+div.cards form div.section ul.cards-list li div.info div.header div.actions i.delete {
+  width: 2.8rem;
+  background-color: var(--color-close);
+  color: white;
+}
+div.cards form div.section ul.cards-list li div.info div.header div.actions i.edit {
+  padding: 0 1.4rem;
+  background-color: var(--color-blue-light);
+  color: #333;
+}
+div.cards form div.section ul.cards-list li div.info div.header div.actions i.edit span {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+div.cards form div.section ul.cards-list li div.info div.edit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+  width: 100%;
+  border-top: 2px solid var(--color-purchase-border);
+}
+div.cards form div.section ul.cards-list li div.info div.edit-card .buttons {
+  display: flex;
+  gap: 1rem;
+}
+div.cards form div.section ul.cards-list li div.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  width: 100%;
+  aspect-ratio: var(--card-aspect-ratio);
+  border-radius: 2rem;
+  padding: 3rem;
+}
+div.cards form div.section ul.cards-list li div.card div.branding {
+  display: flex;
+  justify-content: space-between;
+}
+div.cards form div.section ul.cards-list li div.card div.branding p.bank, div.cards form div.section ul.cards-list li div.card div.branding p.brand {
+  font-size: 2.4rem;
+  color: #eee;
+}
+div.cards form div.section ul.cards-list li div.card div.branding i {
+  font-size: 3.6rem;
+  color: #eee;
+}
+div.cards form div.section ul.cards-list li div.card div.type {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+div.cards form div.section ul.cards-list li div.card div.type i:nth-of-type(1) {
+  font-size: 3rem;
+  color: #ffd465;
+}
+div.cards form div.section ul.cards-list li div.card div.type i:nth-of-type(2) {
+  transform: rotate(90deg);
+  font-size: 1.2rem;
+  color: #eee;
+}
+div.cards form div.section ul.cards-list li div.card div.number {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+div.cards form div.section ul.cards-list li div.card div.number p {
+  color: #eee;
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+}
+div.cards form div.section ul.cards-list li div.card div.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+div.cards form div.section ul.cards-list li div.card div.footer div.data span, div.cards form div.section ul.cards-list li div.card div.footer div.date span {
+  color: #d4d4d4;
+  font-size: 1.4rem;
+}
+div.cards form div.section ul.cards-list li div.card div.footer div.data p, div.cards form div.section ul.cards-list li div.card div.footer div.date p {
+  color: #eee;
+  font-size: 1.6rem;
+}
+div.cards form div.section ul.cards-list li div.card div.footer div.date {
+  text-align: right;
+}/*# sourceMappingURL=cards.css.map */

@@ -1,6 +1,6 @@
 export { ExpensesCard }               from './expensesCard/ExpensesCard';
 export { Loading }                    from './Loading';
-export { Invoice }                    from './invoice/Invoice';
+export { InvoiceScrapper }            from './invoiceScrapper/InvoiceScrapper';
 export { Purchase }                   from './purchase/Purchase';
 export { PurchasesList }              from './PurchasesList';
 export { PurchasesFilter }            from './purchasesFilter/PurchasesFilter';

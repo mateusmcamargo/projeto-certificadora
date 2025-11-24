@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import './navbar.css';
-import { FaReceipt, FaCreditCard, FaPlus, FaWallet, FaCalendar } from 'react-icons/fa6';
+import { FaReceipt, FaCreditCard, FaPlus, FaWallet, FaCalendar, FaFileInvoiceDollar, FaChartPie } from 'react-icons/fa6';
 import { FaCalendarAlt } from 'react-icons/fa';
 
 export function Navbar() {
@@ -11,9 +11,9 @@ export function Navbar() {
             <nav>
 
                 <div className='pages'>
-                    <NavLink to='/extract' className='page'>
-                        <FaReceipt className='active'/>
-                        <span className='active'>Extrato</span>
+                    <NavLink to='/' className='page'>
+                        <FaChartPie/>
+                        <span>Dados</span>
                     </NavLink>
                     <NavLink to='/cards' className='page'>
                         <FaCreditCard/>
@@ -23,7 +23,9 @@ export function Navbar() {
 
                 <div className='pages'>
                     <button className='add'>
-                        <FaPlus/>
+                        <NavLink to='/create'>
+                            <FaPlus/>
+                        </NavLink>
                     </button>
                 </div>
 
@@ -33,9 +35,9 @@ export function Navbar() {
                         <FaWallet/>
                         <span>Carteira</span>
                     </NavLink>
-                    <NavLink to='/calendar' className='page'>
-                        <FaCalendarAlt/>
-                        <span>Calendário</span>
+                    <NavLink to='/invoice' className='page'>
+                        <FaFileInvoiceDollar/>
+                        <span>Nota Fiscal</span>
                     </NavLink>
 
                 </div>

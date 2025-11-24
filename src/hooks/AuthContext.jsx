@@ -3,6 +3,8 @@ import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { auth, googleProvider } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 
+import { saveUser } from '../useCases/userCRUD';
+
 const AuthContext = createContext({ user: null, loading: true });
 
 export const AuthProvider = ({ children }) => {

@@ -1,6 +1,9 @@
-export { Home }           from './home/Home';
 export { Login }          from './login/Login';
 export { Register }       from './register/Register';
 export { Extract }        from './extract/Extract';
 export { Profile }        from './profile/Profile';
+export { Cards }          from './cards/Cards';
+export { Wallet }         from './wallet/Wallet';
+export { Charts }         from './charts/Charts';
+export { Invoice }        from './invoice/Invoice';
 export { ProtectedRoute } from './ProtectedRoute';
