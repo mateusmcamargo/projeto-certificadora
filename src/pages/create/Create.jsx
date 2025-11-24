@@ -9,12 +9,11 @@ import { useNavigate } from 'react-router-dom';
 // components
 import Font from '../../components/font/Font';
 import { Button, Input, Label } from '../../components/ui/Ui';
-import { Purchase } from "../../components/Components";
+import { NewPurchase } from "../../components/Components";
 
 // hooks
 import { useProfileContext } from '../../hooks/ProfileContext';
 import { useAuth } from '../../hooks/AuthContext';
-import { usePurchasesDraftContext } from '../../hooks/PurchasesDraftContext';
 
 // use cases
 import { updateUser } from '../../useCases/userCRUD';
@@ -55,17 +54,6 @@ export function Create() {
 
     const [deposit, setDeposit] = useState(initialDepositState);
     const [card, setCard] = useState(initialCardState);
-
-    const {
-        purchasesList,
-        setPurchasesList,
-        addPurchase,
-        selectedPurchases,
-        setSelectedPurchases,
-        selectedCardId,
-        handleCardSelection,
-        save
-    } = usePurchasesDraftContext(); 
 
     const handleAddDeposit = async () => {
         const { name: newDepositName, value: newDepositValue } = deposit;
@@ -138,37 +126,6 @@ export function Create() {
         setCard(initialCardState);
         alert(`Cartão '${title}' adicionado com sucesso!`);
     };
-
-    const onSelect = (id, selected) => {
-        if (selected) setSelectedPurchases([...selectedPurchases, purchasesList.find(item => item.id === id)]);
-        else setSelectedPurchases(selectedPurchases.filter(item => item.id !== id));
-    };
-
-    const onClose = useCallback((id) => {
-        setPurchasesList(purchasesList.filter(item => item.id !== id));
-        setSelectedPurchases(selectedPurchases.filter(item => item.id !== id));
-    }, [purchasesList, selectedPurchases, setPurchasesList, setSelectedPurchases]);
-    
-    const renderPurchases = () => purchasesList.map((props) => (
-        <li key={props.id}>
-            <Purchase 
-                onClose={() => onClose(props.id)}
-                onSelect={(selected) => onSelect(props.id,selected)}
-                {...props}
-                selected={selectedPurchases.some(el => el.id === props.id)}
-            />
-        </li>
-    ))
-
-    const renderCards = () => {
-        return profile?.cards?.map((c) => (
-            <li key={c.id}>
-                <Button.Option selected={c.id === selectedCardId} onClick={() => handleCardSelection(c.id)}>{c.title}</Button.Option>
-            </li>
-        )) || null;
-    }
-
-    const total = useMemo(() => purchasesList.reduce((acc, cv) => (parseFloat(cv.price || 0) * parseFloat(cv.qtd || 0) + acc), 0).toFixed(2), [purchasesList]);
 
     if (!profile) {
         return (
@@ -245,7 +202,7 @@ export function Create() {
                                 type='text'
                                 value={card.bank}
                                 onChange={(e) => setCard(p => ({ ...p, bank: e.target.value }))}
-                            />
+                                />
                         </div>
                         <div className='input-block'>
                             <Label>Bandeira</Label>
@@ -253,7 +210,7 @@ export function Create() {
                                 type='text'
                                 value={card.brand}
                                 onChange={(e) => setCard(p => ({ ...p, brand: e.target.value }))}
-                            />
+                                />
                         </div>
                         <div className='input-block'>
                             <Label>Data de Vencimento (MM/AA)</Label>
@@ -262,7 +219,7 @@ export function Create() {
                                 value={card.date}
                                 onChange={(e) => setCard(p => ({ ...p, date: e.target.value }))}
                                 maxLength={5}
-                            />
+                                />
                         </div>
                     </div>
 
@@ -273,52 +230,13 @@ export function Create() {
                 </form>
                 
                 <hr/>
-
-                <div className="new-purchase">
-                    <Font.Title>Adicionar Compras</Font.Title>
-
-                    <div className="add-row">
-                        <Button.Add onClick={addPurchase}>
-                            <i className='fa-solid fa-plus'></i>
-                            NOVA COMPRA
-                        </Button.Add>
-                    </div>
-
-                    <ul className="purchases-list">
-                        {renderPurchases()}
-                    </ul>
-
-                    <div className="summary-block">
-                        <h3>Total: R${total}</h3>
-
-                        <div className="card-selector">
-                            <Font.Subtitle>Cartão:</Font.Subtitle>
-                            <ul className='card-options'>
-                                {renderCards()}
-                            </ul>
-                        </div>
-
-                        <div className="action-buttons">
-                            {/* Assuming CANCEL button logic navigates or resets draft state */}
-                            <Button.Cancel onClick={() => navigate('/')}>
-                                <i className='fa-solid fa-xmark'></i>
-                                CANCELAR
-                            </Button.Cancel>
-
-                            <Button.Submit onClick={save}>
-                                <i className='fa-solid fa-floppy-disk'></i>
-                                SALVAR
-                            </Button.Submit>
-                        </div>
-                    </div>
-                </div>
-
+                <NewPurchase/>
                 <hr />
 
                 <Button.Default
                     onClick={() => navigate('/')}
                     style={{ marginTop: '1rem' }}
-                >
+                    >
                     <i className='fa-solid fa-chevron-left'></i>
                     VOLTAR PARA O INÍCIO
                 </Button.Default>
