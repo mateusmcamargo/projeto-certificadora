@@ -166,57 +166,60 @@ export function Cards() {
 
                                         {selectedCard.id === c.id && (
                                         <div role='edit card' className='edit-card'>
-
-                        <div className='input-block'>
-                            <Label>Apelido do Cartão</Label>
-                            <Input
-                                type='text'
-                                value={card.title}
-                                onChange={(e) => setCard(p => ({ ...p, title: e.target.value }))}
-                            />
-                        </div>
-                        <div className='input-block'>
-                            <Label>Nome do titular</Label>
-                            <Input
-                                type='text'
-                                value={card.name}
-                                onChange={(e) => setCard(p => ({ ...p, name: e.target.value }))}
-                            />
-                        </div>
-                        <div className='input-block'>
-                            <Label>Últimos 4 Dígitos</Label>
-                            <Input
-                                type='text'
-                                value={card.number}
-                                onChange={(e) => setCard(p => ({ ...p, number: e.target.value }))}
-                                maxLength={4}
-                            />
-                        </div>
-                        <div className='input-block'>
-                            <Label>Banco</Label>
-                            <Input
-                                type='text'
-                                value={card.bank}
-                                onChange={(e) => setCard(p => ({ ...p, bank: e.target.value }))}
-                            />
-                        </div>
-                        <div className='input-block'>
-                            <Label>Bandeira</Label>
-                            <Input
-                                type='text'
-                                value={card.brand}
-                                onChange={(e) => setCard(p => ({ ...p, brand: e.target.value }))}
-                            />
-                        </div>
-                        <div className='input-block'>
-                            <Label>Data de Vencimento (MM/AA)</Label>
-                            <Input
-                                type='text'
-                                value={card.date}
-                                onChange={(e) => setCard(p => ({ ...p, date: e.target.value }))}
-                                maxLength={5}
-                            />
-                        </div>
+                                            <div className='input-block'>
+                                                <Label>Nome do titular</Label>
+                                                <Input
+                                                    type='text'
+                                                    value={card.name}
+                                                    onChange={(e) => setCard(p => ({ ...p, name: e.target.value }))}
+                                                />
+                                            </div>
+                                            <div className="input-row">
+                                                <div className='input-block'>
+                                                    <Label>Banco</Label>
+                                                    <Input
+                                                        type='text'
+                                                        value={card.bank}
+                                                        onChange={(e) => setCard(p => ({ ...p, bank: e.target.value }))}
+                                                    />
+                                                </div>
+                                                <div className='input-block'>
+                                                    <Label>Bandeira</Label>
+                                                    <Input
+                                                        type='text'
+                                                        value={card.brand}
+                                                        onChange={(e) => setCard(p => ({ ...p, brand: e.target.value }))}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className='input-row'>
+                                                <div className='input-block'>
+                                                    <Label>Últimos 4 Dígitos</Label>
+                                                    <Input
+                                                        type='text'
+                                                        value={card.number}
+                                                        onChange={(e) => setCard(p => ({ ...p, number: e.target.value }))}
+                                                        maxLength={4}
+                                                    />
+                                                </div>
+                                                <div className='input-block'>
+                                                    <Label>Vencimento (MM/AA)</Label>
+                                                    <Input
+                                                        type='text'
+                                                        value={card.date}
+                                                        onChange={(e) => setCard(p => ({ ...p, date: e.target.value }))}
+                                                        maxLength={5}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className='input-block'>
+                                                <Label>Apelido do Cartão</Label>
+                                                <Input
+                                                    type='text'
+                                                    value={card.title}
+                                                    onChange={(e) => setCard(p => ({ ...p, title: e.target.value }))}
+                                                />
+                                            </div>
 
                                             <div className='buttons'>
                                                 <Button.Cancel

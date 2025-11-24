@@ -18,7 +18,7 @@ const date = data?.toDate();
             </div>
 
             <div className="purchase price">
-                <p>R${price.toFixed(2)}</p>
+                <p>R${price}</p>
                 <p className="qtd">Qtd: {qtd}</p>
             </div>
 

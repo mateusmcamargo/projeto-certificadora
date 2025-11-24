@@ -1,46 +1,156 @@
-.new-purchase {
-    h3 {
-        font-size: 2rem;
-    }
+div.new-purchase {
 
-    // Purchases list
-    .purchases-list {
+    div.summary-block {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
+        padding-top: 1.5rem;
 
-        max-height: 32rem;
-        overflow-y: auto;
-    }
-
-    // Total + card selection block
-    .summary-block {
-        display: flex;
-        flex-direction: column;
-        margin-top: 2rem;
-        gap: 1rem;
-
-        .card-selector {
+        h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+        }
+        
+        div.card-selector {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
-            border-bottom: 2px solid var(--color-purchase-border);
+            gap: 0.5rem;
 
             ul {
-                list-style: none;
                 display: flex;
-                flex-wrap: wrap;
-                gap: .5rem;
-                margin: 0;
-                padding: 0;
+                gap: 1rem;
             }
+        }
+
+        div.action-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
         }
     }
 
-    // Action buttons (Cancel / Save)
-    .action-buttons {
+    ul.purchases-list {
         display: flex;
+        flex-direction: column;
         gap: 1rem;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            
+            div.purchase-item-content { 
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                
+                width: 100%;
+                padding: 1rem 2rem 1rem 2rem;
+                border-radius: 1rem;
+                border: 2px solid var(--color-purchase-border);
+                background-color: white;
+
+                
+                div.header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    padding-bottom: 0.5rem; 
+                    width: 100%;
+
+                    div.info {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.2rem;
+                        
+                        p.name {
+                            color: #303030;
+                            font-size: 1.8rem;
+                            font-weight: 600;
+                        }
+                        span.details {
+                            color: #666;
+                            font-size: 1.6rem;
+                        }
+                    }
+
+                    div.actions {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        gap: 1rem;
+
+                        i {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0.5rem;
+
+                            font-size: 1.4rem;
+                            height: 2.8rem;
+                            border-radius: .4rem;
+                            cursor: pointer;
+                            
+                            &.delete {
+                                width: 2.8rem;
+                                background-color: var(--color-close);
+                                color: white;
+                            }
+                            
+                            &.edit {
+                                padding: 0 1.4rem;
+
+                                span {
+                                    font-size: 1.4rem;
+                                    font-weight: 600;
+                                    color: #333;
+                                }
+                                background-color: var(--color-blue-light);
+                                color: #333;
+                            }
+                            
+                            &.fa-square-check, &.fa-square {
+                                font-size: 1.8rem;
+                                color: var(--color-primary);
+                                width: 2.8rem;
+                                background: none;
+                            }
+                        }
+                    }
+                }
+
+                
+                div.edit-purchase { 
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    padding: 1rem 0 0 0;
+                    width: 100%;
+
+                    .buttons {
+                        display: flex;
+                        gap: 1rem;
+                        justify-content: flex-end;
+                        margin-top: 1rem;
+                    }
+                }
+                
+                div.purchase-total {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1rem 0;
+                    border-top: 2px solid var(--color-purchase-border);
+                    
+                    p {
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        color: var(--color-primary);
+                    }
+                }
+            }
+        }
     }
 }
