@@ -24,6 +24,7 @@ import { PurchasesProvider } from './hooks/PurchasesContext';
 import { ProfileProvider } from './hooks/ProfileContext';
 import TopNavbar from './components/topNavbar/TopNavbar';
 import { Create } from './pages/create/Create';
+import { PurchasesManagerDraftLogic } from './components/PurchasesManagerDraftLogic';
 
 function App() {
 
@@ -78,7 +79,9 @@ function App() {
                             }/>
                             <Route path='/create' element={
                                 <ProtectedRoute>
-                                    <Create/>
+                                    <PurchasesManagerDraftLogic>
+                                        <Create/>
+                                    </PurchasesManagerDraftLogic>
                                 </ProtectedRoute>
                             }/>
                             <Route path='/profile' element={
