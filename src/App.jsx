@@ -12,7 +12,6 @@ import '@fontsource/lexend-deca';
 
 // style
 import './app.css';
-import './colors.css';
 import './variables.css';
 
 import { Invoice, ProtectedRoute, Register, Login, Profile, Cards, Wallet, Charts } from './pages/Pages';

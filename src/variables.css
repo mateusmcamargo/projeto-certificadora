@@ -7,8 +7,39 @@
     --color-blue: #266ed4;
     --color-blue-light: #669be6;
     --color-blue-lighter:rgb(216, 227, 245);
+    --color-gray-dark: #333;
     --color-gray-light: #e1e1e1;
     --color-gray-lighter: #f1f1f1;
+
+    --default-fg: white;
+    --default-bg: #333;
+
+    --add-fg: #333;
+    --add-bg: #00FF9C;
+    
+    --submit-fg:white;
+    --submit-bg:#367ee2;
+
+    --selected-fg:white;
+    --selected-bg: #367ee2;
+
+    --unselected-fg:#333;
+    --unselected-bg: #8fb7ef;
+
+    --disabled-fg:#333;
+    --disabled-bg: #8fb7ef;
+
+    --cancel-fg: white;
+    --cancel-bg: #ef4444;
+
+    --menu-fg: white;
+    --menu-bg: #333;
+
+    --foreground: 210 15% 20%;
+    --verylightgrey:hsl(240 15% 98%);
+    --border-color:hsl(215 20% 88%);
+    color: hsl(var(--foreground));
+
     --background: linear-gradient(135deg, #F8F8F8, #ededed);
 
     --button-padding: 1rem 2rem;
