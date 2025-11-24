@@ -14,7 +14,7 @@ export function Register() {
     const {register} = useAuth();
 
     const [userData, setUserData] = useState({
-        nome:"",
+        name:"",
         email:"",
         cards:[],
         deposits:[]

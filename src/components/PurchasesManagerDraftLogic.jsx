@@ -7,24 +7,22 @@ import { useAuth } from '../hooks/AuthContext';
 export const PurchasesManagerDraftLogic = ({children}) => {
     const [purchasesList, setPurchasesList] = useState([]);
     const [selectedPurchases, setSelectedPurchases] = useState([]);
-    const [changesForm, setChangesForm] = useState({title:"", category:"", qtd:0, price:0})
+    const [changesForm, setChangesForm] = useState({name:"", category:"", qtd:0, price:0})
     const [isLoadingApi, setIsLoadingApi] = useState(false);
     const [apiError, setApiError] = useState(null);
 
     const addPurchase = () => {
       setPurchasesList((prevPurchasesList) => [
-        { id:nanoid(), title: "Carne moída 500 g", category: "carne", price: 10, qtd:1 }, 
+        { id:nanoid(), name: "Carne moída 500 g", category: "carne", price: 10, qtd:1 }, 
         ...prevPurchasesList
       ]);
     }
 
-    // Função para consumir a API e adicionar múltiplas compras
     const addMultiplePurchases = async (qrcodeUrl) => {
       setIsLoadingApi(true);
       setApiError(null);
 
       try {
-        // Chama a API passando a URL do QR Code
         const response = await fetch(`http://localhost:5000/parse_nfce_url?url=${encodeURIComponent(qrcodeUrl)}`, {
           method: 'GET',
           headers: {
@@ -39,20 +37,17 @@ export const PurchasesManagerDraftLogic = ({children}) => {
         const data = await response.json();
 
         if (data.status === 'success' && data.nfce_data && data.nfce_data.itens) {
-          // Mapeia os itens da nota fiscal para o formato do seu app
           const newPurchases = data.nfce_data.itens.map(item => ({
             id: nanoid(),
-            title: item.descricao || 'Sem descrição',
-            category: '', // Você pode adicionar lógica para categorizar automaticamente
+            name: item.descricao || 'Sem descrição',
+            category: 'Nota Fiscal',
             price: item.valor_unit || 0,
             qtd: item.quantidade || 1,
-            // Dados extras da nota (opcional)
             codigoNF: item.codigo,
             unidade: item.unidade,
             valorTotal: item.valor_total
           }));
 
-          // Adiciona as compras à lista
           setPurchasesList((prevPurchasesList) => [...newPurchases, ...prevPurchasesList]);
 
           setIsLoadingApi(false);

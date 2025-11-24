@@ -30,8 +30,6 @@ export function Profile() {
         return actions[action.type]();
     }
     const [state, dispatch] = useReducer(profileReducer, useProfileContext().profile);
-    const [deposit, setDeposit] = useState({id:'', value:''})
-    const [selectedDeposit, setSelectedDeposit] = useState({id:''});
 
     return (
         <main>
