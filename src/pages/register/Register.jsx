@@ -97,8 +97,8 @@ export function Register() {
                         <Input
                             type="text"
                             placeholder='Santander'
-                            value={card.name}
-                            onChange={(e) => setCard({...card, name:e.target.value})}
+                            value={card.bank}
+                            onChange={(e) => setCard({...card, bank:e.target.value})}
                         />
                 </div>
                     <div className='input-block'>
@@ -106,8 +106,8 @@ export function Register() {
                         <Input
                             type="text"
                             placeholder='Visa'
-                            value={card.name}
-                            onChange={(e) => setCard({...card, name:e.target.value})}
+                            value={card.brand}
+                            onChange={(e) => setCard({...card, brand:e.target.value})}
                         />
                     </div>
                 </div>
@@ -117,8 +117,8 @@ export function Register() {
                         <Input
                             type="text"
                             placeholder='1234'
-                            value={card.name}
-                            onChange={(e) => setCard({...card, name:e.target.value})}
+                            value={card.number}
+                            onChange={(e) => setCard({...card, number:e.target.value})}
                         />
                 </div>
                     <div className='input-block'>
@@ -126,8 +126,8 @@ export function Register() {
                         <Input
                             type="text"
                             placeholder='10/29'
-                            value={card.name}
-                            onChange={(e) => setCard({...card, name:e.target.value})}
+                            value={card.date}
+                            onChange={(e) => setCard({...card, date:e.target.value})}
                         />
                     </div>
                 </div>
