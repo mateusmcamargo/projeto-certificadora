@@ -112,6 +112,7 @@ export function NewPurchase({type}) {
                     <Input
                         type='text'
                         value={purchaseData.name}
+                        placeholder='Arroz'
                         onChange={(e) => setPurchaseData(p => ({ ...p, name: e.target.value }))}
                     />
                 </div>
@@ -119,8 +120,9 @@ export function NewPurchase({type}) {
                     <Label>Categoria</Label>
                     <Input
                         type='text'
-                        value={purchaseData.name}
-                        onChange={(e) => setPurchaseData(p => ({ ...p, name: e.target.value }))}
+                        placeholder='Mercado'
+                        value={purchaseData.category}
+                        onChange={(e) => setPurchaseData(p => ({ ...p, category: e.target.value }))}
                     />
                 </div>
                 <div className='input-row'>

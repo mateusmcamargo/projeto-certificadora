@@ -147,6 +147,7 @@ export function Create() {
                         <Label>Nome do depósito</Label>
                         <Input
                             type='text'
+                            placeholder='Salário'
                             value={deposit.name}
                             onChange={(e) => setDeposit(p => ({ ...p, name: e.target.value }))}
                         />
@@ -155,6 +156,7 @@ export function Create() {
                         <Label>Valor do depósito (R$)</Label>
                         <Input
                             type='text'
+                            placeholder='135,55'
                             value={deposit.value}
                             onChange={(e) => setDeposit(p => ({ ...p, value: e.target.value }))}
                         />
@@ -175,6 +177,7 @@ export function Create() {
                             <Label>Nome do titular</Label>
                             <Input
                                 type='text'
+                                placeholder='Nome e Sobrenome'
                                 value={card.name}
                                 onChange={(e) => setCard(p => ({ ...p, name: e.target.value }))}
                             />
@@ -184,6 +187,7 @@ export function Create() {
                                 <Label>Banco</Label>
                                 <Input
                                     type='text'
+                                    placeholder='Santander'
                                     value={card.bank}
                                     onChange={(e) => setCard(p => ({ ...p, bank: e.target.value }))}
                                 />
@@ -192,6 +196,7 @@ export function Create() {
                                 <Label>Bandeira</Label>
                                 <Input
                                     type='text'
+                                    placeholder='Visa'
                                     value={card.brand}
                                     onChange={(e) => setCard(p => ({ ...p, brand: e.target.value }))}
                                 />
@@ -202,6 +207,7 @@ export function Create() {
                                 <Label>Últimos 4 Dígitos</Label>
                                 <Input
                                     type='text'
+                                    placeholder='4521'
                                     value={card.number}
                                     onChange={(e) => setCard(p => ({ ...p, number: e.target.value }))}
                                     maxLength={4}
@@ -211,6 +217,7 @@ export function Create() {
                                 <Label>Vencimento (MM/AA)</Label>
                                 <Input
                                     type='text'
+                                    placeholder='10/29'
                                     value={card.date}
                                     onChange={(e) => setCard(p => ({ ...p, date: e.target.value }))}
                                     maxLength={5}
@@ -221,6 +228,7 @@ export function Create() {
                             <Label>Apelido do Cartão</Label>
                             <Input
                                 type='text'
+                                placeholder='Santander Débito'
                                 value={card.title}
                                 onChange={(e) => setCard(p => ({ ...p, title: e.target.value }))}
                             />

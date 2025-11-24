@@ -28,18 +28,22 @@ export function Register() {
             <div className='block'>
                 <Font.Title>Crie sua conta</Font.Title>
 
+                <Font.Subtitle>Insira seu nome</Font.Subtitle>
                 <div className='input-block'>
                     <Label>Nome</Label>
                     <Input
                         type="text"
-                        value={userData.nome}
-                        onChange={(e) => setUserData({...userData, nome: e.target.value})}/>
+                        placeholder='Nome (sobrenome opicional)'
+                        value={userData.name}
+                        onChange={(e) => setUserData({...userData, name: e.target.value})}/>
                 </div>
 
+                <Font.Subtitle>Adicione seu primeiro depósito</Font.Subtitle>
                 <div className='input-block'>
-                    <Label className='required'>Depósito Inicial</Label>
+                    <Label className='required'>Depósito Inicial (R$)</Label>
                     <Input
                         type="number"
+                        placeholder='1000,00'
                         value={deposit.value}
                         onChange={(e) => setDeposit({
                             ...deposit,
@@ -77,10 +81,61 @@ export function Register() {
                     </>
                 }
 
+                <Font.Subtitle>Adicione seu primeiro cartão</Font.Subtitle>
                 <div className='input-block'>
-                    <Label>Adicionar cartão</Label>
+                    <Label>Nome do Titular</Label>
                     <Input
                         type="text"
+                        placeholder='Nome e Sobrenome'
+                        value={card.name}
+                        onChange={(e) => setCard({...card, name:e.target.value})}
+                    />
+                </div>
+                <div className="input-row">
+                    <div className='input-block'>
+                        <Label>Banco</Label>
+                        <Input
+                            type="text"
+                            placeholder='Santander'
+                            value={card.name}
+                            onChange={(e) => setCard({...card, name:e.target.value})}
+                        />
+                </div>
+                    <div className='input-block'>
+                        <Label>Bandeira</Label>
+                        <Input
+                            type="text"
+                            placeholder='Visa'
+                            value={card.name}
+                            onChange={(e) => setCard({...card, name:e.target.value})}
+                        />
+                    </div>
+                </div>
+                <div className="input-row">
+                    <div className='input-block'>
+                        <Label>Últimos 4 Dígitos</Label>
+                        <Input
+                            type="text"
+                            placeholder='1234'
+                            value={card.name}
+                            onChange={(e) => setCard({...card, name:e.target.value})}
+                        />
+                </div>
+                    <div className='input-block'>
+                        <Label>Vencimento (MM/AA)</Label>
+                        <Input
+                            type="text"
+                            placeholder='10/29'
+                            value={card.name}
+                            onChange={(e) => setCard({...card, name:e.target.value})}
+                        />
+                    </div>
+                </div>
+                <div className='input-block'>
+                    <Label>Apelido do Cartão</Label>
+                    <Input
+                        type="text"
+                        placeholder='Crédito Santander'
                         value={card.title}
                         onChange={(e) => setCard({...card, title:e.target.value})}
                     />
