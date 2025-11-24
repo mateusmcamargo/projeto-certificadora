@@ -1,6 +1,6 @@
 import './profile.css'
 
-import { useReducer, useState } from 'react'
+import { useReducer } from 'react'
 import { Button, Input, Label } from '../../components/ui/Ui'
 import Font from '../../components/font/Font'
 import { useProfileContext } from '../../hooks/ProfileContext'
@@ -12,9 +12,8 @@ import { useAuth } from '../../hooks/AuthContext'
 export function Profile() {
 
     const { authData } = useAuth();
+    const { profile, setProfile } = useProfileContext();
     
-    //console.log('dasd',useProfileContext())
-
     const profileReducer = (state, action) => {
         const actions = {
             'nameChange':() => ({...state, name:action.payload.value}),
@@ -25,11 +24,21 @@ export function Profile() {
             'add_deposit':() => ({...state, deposits:[...state.deposits, {id:nanoid(), value:action.payload.deposit.value}]}),
             'change_deposit':() => ({...state, deposits:state.deposits.map(deposit => deposit.id == action.payload.deposit.id ? action.payload.deposit : deposit)}),
             'delete_deposit':() => ({...state, deposits:state.deposits.filter(deposit => deposit.id != action.payload.id)}),
-            'save':async () => { updateUser(authData.user.email, state) }
+            'save': () => { 
+                updateUser(authData.user.email, state)
+                    .then(() => {
+                        setProfile(state);
+                    })
+                    .catch(error => {
+                        console.error('Failed to save user data:', error);
+                    });
+                return state;
+            }
         }
         return actions[action.type]();
     }
-    const [state, dispatch] = useReducer(profileReducer, useProfileContext().profile);
+    
+    const [state, dispatch] = useReducer(profileReducer, profile);
 
     return (
         <main>
@@ -39,7 +48,7 @@ export function Profile() {
 
                 <form onSubmit={(e) => {e.preventDefault();}}>
 
-                    <Font.Subtitle>Dados Pessoais</Font.Subtitle>   
+                    <Font.Subtitle>Dados Pessoais</Font.Subtitle>  
                     <div className='section user'>
                         <div className='input-block'>
                             <Label>Nome</Label>
