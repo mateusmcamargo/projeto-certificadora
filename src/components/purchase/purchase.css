@@ -1,7 +1,7 @@
 article.purchase {
-  display: grid;
-  grid-template-columns: 2fr 1fr 0.5fr;
-  gap: 2rem;
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
   padding: 1rem 2rem;
   width: 100%;
   background-color: var(--color-purchase-bg);

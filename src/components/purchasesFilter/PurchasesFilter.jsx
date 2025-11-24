@@ -50,7 +50,7 @@ export function PurchasesFilter() {
 
                 <div className="list-section">
                     <Font.Subtitle>Lista de compras já registradas</Font.Subtitle>
-                    <PurchasesList/>
+                    <PurchasesList actions={false}/>
                 </div>
             </div>
 

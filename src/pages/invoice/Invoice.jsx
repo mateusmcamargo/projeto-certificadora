@@ -6,6 +6,7 @@ import {
   PurchasesManagerDraftLogic,
 } from '../../components/Components';
 import PurchasesManagerDialog from '../../components/ui/PurchasesManagerDialog';
+import Font from '../../components/font/Font';
 
 export function Invoice() {
 
@@ -13,6 +14,7 @@ export function Invoice() {
         <main>
             <PurchasesManagerDraftLogic>
                 <InvoiceScrapper/>
+                <Font.Title>Adicionar Compras</Font.Title>
                 <NewPurchase/>
                 <PurchasesManagerDialog/>
             </PurchasesManagerDraftLogic>

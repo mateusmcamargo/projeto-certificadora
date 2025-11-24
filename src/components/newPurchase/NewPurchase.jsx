@@ -21,7 +21,7 @@ const initialPurchaseDataState = {
     qtd: ''
 };
 
-export function NewPurchase() {
+export function NewPurchase({type}) {
     const {
         purchasesList,
         setPurchasesList,
@@ -240,8 +240,7 @@ export function NewPurchase() {
     }, 0).toFixed(2), [purchasesList]);
     
     return (
-        <div className="block new-purchase">
-            <Font.Title>Adicionar Compras</Font.Title>
+        <div className={`${type === 'create' ? 'section' : 'block'} new-purchase`}>
 
             {/* ✅ CORRECT USAGE: Clicking this button runs handleAddAndEdit, which opens the form */}
             <Button.Add onClick={handleAddAndEdit}>
